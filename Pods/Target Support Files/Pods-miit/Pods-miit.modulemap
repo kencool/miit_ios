@@ -1,0 +1,6 @@
+framework module Pods_miit {
+  umbrella header "Pods-miit-umbrella.h"
+
+  export *
+  module * { export * }
+}

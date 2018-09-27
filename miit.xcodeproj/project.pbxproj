@@ -1,0 +1,866 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		014FA8886612466A84574C45 /* Pods_miit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B02C8FB4D07D2270A0F537C /* Pods_miit.framework */; };
+		70486A4DEEF49670E168E58A /* Pods_miitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312CA5F0D6E28EA5377C578C /* Pods_miitTests.framework */; };
+		B5EC16A34B3C55893788774E /* Pods_miitUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 659ED1708DB137F24F7E3288 /* Pods_miitUITests.framework */; };
+		BE1A5680215A872000BEC091 /* MICall+RoomInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1A567F215A872000BEC091 /* MICall+RoomInfo.swift */; };
+		BE1A5682215AC3FE00BEC091 /* CallHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1A5681215AC3FE00BEC091 /* CallHistory.swift */; };
+		BE1A568C215C016A00BEC091 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1A568B215C016A00BEC091 /* ChatView.swift */; };
+		BE4A6F94214962A200DC9046 /* CallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4A6F93214962A200DC9046 /* CallView.swift */; };
+		BE4A6F962149908E00DC9046 /* CoreMediaExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4A6F952149908E00DC9046 /* CoreMediaExt.swift */; };
+		BE4A6FA8214AEBF800DC9046 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4A6FA7214AEBF800DC9046 /* Message.swift */; };
+		BE4A6FBA214C548600DC9046 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4A6FB9214C548600DC9046 /* MessageCell.swift */; };
+		BE845762215624F6001C557D /* UIImageExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE845761215624F6001C557D /* UIImageExt.swift */; };
+		BE8457642156BAC6001C557D /* Miit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8457632156BAC6001C557D /* Miit.swift */; };
+		BE84576621578FCF001C557D /* MICall+Gesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE84576521578FCF001C557D /* MICall+Gesture.swift */; };
+		BE84576821579F3A001C557D /* MICall+FilePresent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE84576721579F3A001C557D /* MICall+FilePresent.swift */; };
+		BE84576C2157D8A2001C557D /* ImageZoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE84576B2157D8A1001C557D /* ImageZoomView.swift */; };
+		BE94C16D2146352000A8CD81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE94C16C2146352000A8CD81 /* AppDelegate.swift */; };
+		BE94C1722146352000A8CD81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE94C1702146352000A8CD81 /* Main.storyboard */; };
+		BE94C1742146352100A8CD81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE94C1732146352100A8CD81 /* Assets.xcassets */; };
+		BE94C1772146352100A8CD81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE94C1752146352100A8CD81 /* LaunchScreen.storyboard */; };
+		BE94C1822146352100A8CD81 /* miitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE94C1812146352100A8CD81 /* miitTests.swift */; };
+		BE94C18D2146352100A8CD81 /* miitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE94C18C2146352100A8CD81 /* miitUITests.swift */; };
+		BE94C19D21464E8A00A8CD81 /* MICallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE94C19C21464E8A00A8CD81 /* MICallViewController.swift */; };
+		BE94C19F21464F2100A8CD81 /* MICallEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE94C19E21464F2100A8CD81 /* MICallEntryViewController.swift */; };
+		BE94C1A121465BF900A8CD81 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE94C1A021465BF900A8CD81 /* Utils.swift */; };
+		BE94C1A32146EC0F00A8CD81 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE94C1A22146EC0F00A8CD81 /* Api.swift */; };
+		BE94C1A52147A3B200A8CD81 /* Call.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE94C1A42147A3B200A8CD81 /* Call.swift */; };
+		BE94C1A82147A9BB00A8CD81 /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE94C1A72147A9BB00A8CD81 /* UIViewControllerExt.swift */; };
+		BE94C1AA2147B5DB00A8CD81 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE94C1A92147B5DB00A8CD81 /* UIViewExt.swift */; };
+		BE94C1AE2147C10200A8CD81 /* RTCClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE94C1AD2147C10200A8CD81 /* RTCClient.swift */; };
+		BE960190214EE0C900DEFBB3 /* CallToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE96018F214EE0C900DEFBB3 /* CallToolBar.swift */; };
+		BE96019B21516FC000DEFBB3 /* Call+FileTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE96019A21516FC000DEFBB3 /* Call+FileTransfer.swift */; };
+		BE96019D2152A2F500DEFBB3 /* DataExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE96019C2152A2F500DEFBB3 /* DataExt.swift */; };
+		BE96019F2153F9DD00DEFBB3 /* MICall+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE96019E2153F9DD00DEFBB3 /* MICall+Keyboard.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BE94C17E2146352100A8CD81 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE94C1612146352000A8CD81 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE94C1682146352000A8CD81;
+			remoteInfo = miit;
+		};
+		BE94C1892146352100A8CD81 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE94C1612146352000A8CD81 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE94C1682146352000A8CD81;
+			remoteInfo = miit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0056DCD5A1051F58E59D02E8 /* Pods-miit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-miit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-miit/Pods-miit.debug.xcconfig"; sourceTree = "<group>"; };
+		163F11E9A2324D1A54CF4644 /* Pods-miitUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-miitUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-miitUITests/Pods-miitUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		312CA5F0D6E28EA5377C578C /* Pods_miitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_miitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B02C8FB4D07D2270A0F537C /* Pods_miit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_miit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FB7BF329337E736364399CB /* Pods-miitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-miitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-miitTests/Pods-miitTests.debug.xcconfig"; sourceTree = "<group>"; };
+		659ED1708DB137F24F7E3288 /* Pods_miitUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_miitUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE1A567F215A872000BEC091 /* MICall+RoomInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MICall+RoomInfo.swift"; sourceTree = "<group>"; };
+		BE1A5681215AC3FE00BEC091 /* CallHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallHistory.swift; sourceTree = "<group>"; };
+		BE1A568B215C016A00BEC091 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		BE4A6F93214962A200DC9046 /* CallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallView.swift; sourceTree = "<group>"; };
+		BE4A6F952149908E00DC9046 /* CoreMediaExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMediaExt.swift; sourceTree = "<group>"; };
+		BE4A6FA7214AEBF800DC9046 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		BE4A6FB9214C548600DC9046 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		BE845761215624F6001C557D /* UIImageExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExt.swift; sourceTree = "<group>"; };
+		BE8457632156BAC6001C557D /* Miit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Miit.swift; sourceTree = "<group>"; };
+		BE84576521578FCF001C557D /* MICall+Gesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MICall+Gesture.swift"; sourceTree = "<group>"; };
+		BE84576721579F3A001C557D /* MICall+FilePresent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MICall+FilePresent.swift"; sourceTree = "<group>"; };
+		BE84576B2157D8A1001C557D /* ImageZoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageZoomView.swift; sourceTree = "<group>"; };
+		BE94C1692146352000A8CD81 /* miit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = miit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE94C16C2146352000A8CD81 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BE94C1712146352000A8CD81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BE94C1732146352100A8CD81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BE94C1762146352100A8CD81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BE94C1782146352100A8CD81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE94C17D2146352100A8CD81 /* miitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = miitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE94C1812146352100A8CD81 /* miitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = miitTests.swift; sourceTree = "<group>"; };
+		BE94C1832146352100A8CD81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE94C1882146352100A8CD81 /* miitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = miitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE94C18C2146352100A8CD81 /* miitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = miitUITests.swift; sourceTree = "<group>"; };
+		BE94C18E2146352100A8CD81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE94C19A214636A900A8CD81 /* miit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "miit-Bridging-Header.h"; sourceTree = "<group>"; };
+		BE94C19C21464E8A00A8CD81 /* MICallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MICallViewController.swift; sourceTree = "<group>"; };
+		BE94C19E21464F2100A8CD81 /* MICallEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MICallEntryViewController.swift; sourceTree = "<group>"; };
+		BE94C1A021465BF900A8CD81 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		BE94C1A22146EC0F00A8CD81 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		BE94C1A42147A3B200A8CD81 /* Call.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Call.swift; sourceTree = "<group>"; };
+		BE94C1A72147A9BB00A8CD81 /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
+		BE94C1A92147B5DB00A8CD81 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
+		BE94C1AD2147C10200A8CD81 /* RTCClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTCClient.swift; sourceTree = "<group>"; };
+		BE96018F214EE0C900DEFBB3 /* CallToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallToolBar.swift; sourceTree = "<group>"; };
+		BE96019A21516FC000DEFBB3 /* Call+FileTransfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Call+FileTransfer.swift"; sourceTree = "<group>"; };
+		BE96019C2152A2F500DEFBB3 /* DataExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExt.swift; sourceTree = "<group>"; };
+		BE96019E2153F9DD00DEFBB3 /* MICall+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MICall+Keyboard.swift"; sourceTree = "<group>"; };
+		D74ADBB458DCF843BB22F4A9 /* Pods-miitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-miitUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-miitUITests/Pods-miitUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E05EA6A412DEE46BEC44DABF /* Pods-miitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-miitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-miitTests/Pods-miitTests.release.xcconfig"; sourceTree = "<group>"; };
+		F4AE2B9648B635F78E6B9F66 /* Pods-miit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-miit.release.xcconfig"; path = "Pods/Target Support Files/Pods-miit/Pods-miit.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BE94C1662146352000A8CD81 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				014FA8886612466A84574C45 /* Pods_miit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE94C17A2146352100A8CD81 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70486A4DEEF49670E168E58A /* Pods_miitTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE94C1852146352100A8CD81 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5EC16A34B3C55893788774E /* Pods_miitUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		553F9B9ACB15434558FB9334 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0056DCD5A1051F58E59D02E8 /* Pods-miit.debug.xcconfig */,
+				F4AE2B9648B635F78E6B9F66 /* Pods-miit.release.xcconfig */,
+				5FB7BF329337E736364399CB /* Pods-miitTests.debug.xcconfig */,
+				E05EA6A412DEE46BEC44DABF /* Pods-miitTests.release.xcconfig */,
+				163F11E9A2324D1A54CF4644 /* Pods-miitUITests.debug.xcconfig */,
+				D74ADBB458DCF843BB22F4A9 /* Pods-miitUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8F4541EF02F66BC29E2F673B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3B02C8FB4D07D2270A0F537C /* Pods_miit.framework */,
+				312CA5F0D6E28EA5377C578C /* Pods_miitTests.framework */,
+				659ED1708DB137F24F7E3288 /* Pods_miitUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BE1A5692215D612C00BEC091 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BE94C19E21464F2100A8CD81 /* MICallEntryViewController.swift */,
+				BE94C19C21464E8A00A8CD81 /* MICallViewController.swift */,
+				BE84576521578FCF001C557D /* MICall+Gesture.swift */,
+				BE96019E2153F9DD00DEFBB3 /* MICall+Keyboard.swift */,
+				BE84576721579F3A001C557D /* MICall+FilePresent.swift */,
+				BE1A567F215A872000BEC091 /* MICall+RoomInfo.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		BE1A5693215D618D00BEC091 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BE4A6F93214962A200DC9046 /* CallView.swift */,
+				BE96018F214EE0C900DEFBB3 /* CallToolBar.swift */,
+				BE1A568B215C016A00BEC091 /* ChatView.swift */,
+				BE4A6FB9214C548600DC9046 /* MessageCell.swift */,
+				BE84576B2157D8A1001C557D /* ImageZoomView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BE1A5694215D61DA00BEC091 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				BE94C1A22146EC0F00A8CD81 /* Api.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		BE94C1602146352000A8CD81 = {
+			isa = PBXGroup;
+			children = (
+				BE94C16B2146352000A8CD81 /* miit */,
+				BE94C1802146352100A8CD81 /* miitTests */,
+				BE94C18B2146352100A8CD81 /* miitUITests */,
+				BE94C16A2146352000A8CD81 /* Products */,
+				553F9B9ACB15434558FB9334 /* Pods */,
+				8F4541EF02F66BC29E2F673B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		BE94C16A2146352000A8CD81 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BE94C1692146352000A8CD81 /* miit.app */,
+				BE94C17D2146352100A8CD81 /* miitTests.xctest */,
+				BE94C1882146352100A8CD81 /* miitUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BE94C16B2146352000A8CD81 /* miit */ = {
+			isa = PBXGroup;
+			children = (
+				BE94C19B21464DFC00A8CD81 /* Call */,
+				BE94C1A62147A9A300A8CD81 /* Extension */,
+				BE94C16C2146352000A8CD81 /* AppDelegate.swift */,
+				BE94C1A021465BF900A8CD81 /* Utils.swift */,
+				BE8457632156BAC6001C557D /* Miit.swift */,
+				BE94C1702146352000A8CD81 /* Main.storyboard */,
+				BE94C1732146352100A8CD81 /* Assets.xcassets */,
+				BE94C1752146352100A8CD81 /* LaunchScreen.storyboard */,
+				BE94C1782146352100A8CD81 /* Info.plist */,
+				BE94C19A214636A900A8CD81 /* miit-Bridging-Header.h */,
+			);
+			path = miit;
+			sourceTree = "<group>";
+		};
+		BE94C1802146352100A8CD81 /* miitTests */ = {
+			isa = PBXGroup;
+			children = (
+				BE94C1812146352100A8CD81 /* miitTests.swift */,
+				BE94C1832146352100A8CD81 /* Info.plist */,
+			);
+			path = miitTests;
+			sourceTree = "<group>";
+		};
+		BE94C18B2146352100A8CD81 /* miitUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BE94C18C2146352100A8CD81 /* miitUITests.swift */,
+				BE94C18E2146352100A8CD81 /* Info.plist */,
+			);
+			path = miitUITests;
+			sourceTree = "<group>";
+		};
+		BE94C19B21464DFC00A8CD81 /* Call */ = {
+			isa = PBXGroup;
+			children = (
+				BE1A5694215D61DA00BEC091 /* Api */,
+				BE1A5692215D612C00BEC091 /* ViewControllers */,
+				BE1A5693215D618D00BEC091 /* Views */,
+				BE94C1A42147A3B200A8CD81 /* Call.swift */,
+				BE96019A21516FC000DEFBB3 /* Call+FileTransfer.swift */,
+				BE94C1AD2147C10200A8CD81 /* RTCClient.swift */,
+				BE4A6FA7214AEBF800DC9046 /* Message.swift */,
+				BE1A5681215AC3FE00BEC091 /* CallHistory.swift */,
+			);
+			path = Call;
+			sourceTree = "<group>";
+		};
+		BE94C1A62147A9A300A8CD81 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				BE94C1A72147A9BB00A8CD81 /* UIViewControllerExt.swift */,
+				BE94C1A92147B5DB00A8CD81 /* UIViewExt.swift */,
+				BE4A6F952149908E00DC9046 /* CoreMediaExt.swift */,
+				BE96019C2152A2F500DEFBB3 /* DataExt.swift */,
+				BE845761215624F6001C557D /* UIImageExt.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BE94C1682146352000A8CD81 /* miit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE94C1912146352100A8CD81 /* Build configuration list for PBXNativeTarget "miit" */;
+			buildPhases = (
+				BDF973FEA6E0028085A1023B /* [CP] Check Pods Manifest.lock */,
+				BE94C1652146352000A8CD81 /* Sources */,
+				BE94C1662146352000A8CD81 /* Frameworks */,
+				BE94C1672146352000A8CD81 /* Resources */,
+				40C78FDD9A68514F7D2FC7B2 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = miit;
+			productName = miit;
+			productReference = BE94C1692146352000A8CD81 /* miit.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BE94C17C2146352100A8CD81 /* miitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE94C1942146352100A8CD81 /* Build configuration list for PBXNativeTarget "miitTests" */;
+			buildPhases = (
+				6F01A0CD54D9040AADA67B40 /* [CP] Check Pods Manifest.lock */,
+				BE94C1792146352100A8CD81 /* Sources */,
+				BE94C17A2146352100A8CD81 /* Frameworks */,
+				BE94C17B2146352100A8CD81 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BE94C17F2146352100A8CD81 /* PBXTargetDependency */,
+			);
+			name = miitTests;
+			productName = miitTests;
+			productReference = BE94C17D2146352100A8CD81 /* miitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BE94C1872146352100A8CD81 /* miitUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE94C1972146352100A8CD81 /* Build configuration list for PBXNativeTarget "miitUITests" */;
+			buildPhases = (
+				2F59614206D71CA2276C1822 /* [CP] Check Pods Manifest.lock */,
+				BE94C1842146352100A8CD81 /* Sources */,
+				BE94C1852146352100A8CD81 /* Frameworks */,
+				BE94C1862146352100A8CD81 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BE94C18A2146352100A8CD81 /* PBXTargetDependency */,
+			);
+			name = miitUITests;
+			productName = miitUITests;
+			productReference = BE94C1882146352100A8CD81 /* miitUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BE94C1612146352000A8CD81 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Ken Sun";
+				TargetAttributes = {
+					BE94C1682146352000A8CD81 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					BE94C17C2146352100A8CD81 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = BE94C1682146352000A8CD81;
+					};
+					BE94C1872146352100A8CD81 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = BE94C1682146352000A8CD81;
+					};
+				};
+			};
+			buildConfigurationList = BE94C1642146352000A8CD81 /* Build configuration list for PBXProject "miit" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BE94C1602146352000A8CD81;
+			productRefGroup = BE94C16A2146352000A8CD81 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BE94C1682146352000A8CD81 /* miit */,
+				BE94C17C2146352100A8CD81 /* miitTests */,
+				BE94C1872146352100A8CD81 /* miitUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BE94C1672146352000A8CD81 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE94C1772146352100A8CD81 /* LaunchScreen.storyboard in Resources */,
+				BE94C1742146352100A8CD81 /* Assets.xcassets in Resources */,
+				BE94C1722146352000A8CD81 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE94C17B2146352100A8CD81 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE94C1862146352100A8CD81 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2F59614206D71CA2276C1822 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-miitUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		40C78FDD9A68514F7D2FC7B2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-miit/Pods-miit-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AsyncSwift/Async.framework",
+				"${PODS_ROOT}/GoogleWebRTC/Frameworks/frameworks/WebRTC.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwifterSwift/SwifterSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/UICircularProgressRing/UICircularProgressRing.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Async.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WebRTC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwifterSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICircularProgressRing.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-miit/Pods-miit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6F01A0CD54D9040AADA67B40 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-miitTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BDF973FEA6E0028085A1023B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-miit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BE94C1652146352000A8CD81 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE94C1A121465BF900A8CD81 /* Utils.swift in Sources */,
+				BE96019F2153F9DD00DEFBB3 /* MICall+Keyboard.swift in Sources */,
+				BE94C1AE2147C10200A8CD81 /* RTCClient.swift in Sources */,
+				BE1A568C215C016A00BEC091 /* ChatView.swift in Sources */,
+				BE94C1A52147A3B200A8CD81 /* Call.swift in Sources */,
+				BE845762215624F6001C557D /* UIImageExt.swift in Sources */,
+				BE96019B21516FC000DEFBB3 /* Call+FileTransfer.swift in Sources */,
+				BE8457642156BAC6001C557D /* Miit.swift in Sources */,
+				BE94C19D21464E8A00A8CD81 /* MICallViewController.swift in Sources */,
+				BE84576621578FCF001C557D /* MICall+Gesture.swift in Sources */,
+				BE94C19F21464F2100A8CD81 /* MICallEntryViewController.swift in Sources */,
+				BE4A6F962149908E00DC9046 /* CoreMediaExt.swift in Sources */,
+				BE94C1AA2147B5DB00A8CD81 /* UIViewExt.swift in Sources */,
+				BE94C1A32146EC0F00A8CD81 /* Api.swift in Sources */,
+				BE94C1A82147A9BB00A8CD81 /* UIViewControllerExt.swift in Sources */,
+				BE4A6FA8214AEBF800DC9046 /* Message.swift in Sources */,
+				BE960190214EE0C900DEFBB3 /* CallToolBar.swift in Sources */,
+				BE84576C2157D8A2001C557D /* ImageZoomView.swift in Sources */,
+				BE96019D2152A2F500DEFBB3 /* DataExt.swift in Sources */,
+				BE84576821579F3A001C557D /* MICall+FilePresent.swift in Sources */,
+				BE1A5680215A872000BEC091 /* MICall+RoomInfo.swift in Sources */,
+				BE4A6FBA214C548600DC9046 /* MessageCell.swift in Sources */,
+				BE4A6F94214962A200DC9046 /* CallView.swift in Sources */,
+				BE1A5682215AC3FE00BEC091 /* CallHistory.swift in Sources */,
+				BE94C16D2146352000A8CD81 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE94C1792146352100A8CD81 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE94C1822146352100A8CD81 /* miitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE94C1842146352100A8CD81 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE94C18D2146352100A8CD81 /* miitUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BE94C17F2146352100A8CD81 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE94C1682146352000A8CD81 /* miit */;
+			targetProxy = BE94C17E2146352100A8CD81 /* PBXContainerItemProxy */;
+		};
+		BE94C18A2146352100A8CD81 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE94C1682146352000A8CD81 /* miit */;
+			targetProxy = BE94C1892146352100A8CD81 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BE94C1702146352000A8CD81 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BE94C1712146352000A8CD81 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BE94C1752146352100A8CD81 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BE94C1762146352100A8CD81 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BE94C18F2146352100A8CD81 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BE94C1902146352100A8CD81 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BE94C1922146352100A8CD81 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0056DCD5A1051F58E59D02E8 /* Pods-miit.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6P33NF7HGW;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = miit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = tw.miit.miit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "miit/miit-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BE94C1932146352100A8CD81 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4AE2B9648B635F78E6B9F66 /* Pods-miit.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6P33NF7HGW;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = miit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = tw.miit.miit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "miit/miit-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BE94C1952146352100A8CD81 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5FB7BF329337E736364399CB /* Pods-miitTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6P33NF7HGW;
+				INFOPLIST_FILE = miitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = tw.miit.miitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/miit.app/miit";
+			};
+			name = Debug;
+		};
+		BE94C1962146352100A8CD81 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E05EA6A412DEE46BEC44DABF /* Pods-miitTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6P33NF7HGW;
+				INFOPLIST_FILE = miitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = tw.miit.miitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/miit.app/miit";
+			};
+			name = Release;
+		};
+		BE94C1982146352100A8CD81 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 163F11E9A2324D1A54CF4644 /* Pods-miitUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6P33NF7HGW;
+				INFOPLIST_FILE = miitUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = tw.miit.miitUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = miit;
+			};
+			name = Debug;
+		};
+		BE94C1992146352100A8CD81 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D74ADBB458DCF843BB22F4A9 /* Pods-miitUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6P33NF7HGW;
+				INFOPLIST_FILE = miitUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = tw.miit.miitUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = miit;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BE94C1642146352000A8CD81 /* Build configuration list for PBXProject "miit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE94C18F2146352100A8CD81 /* Debug */,
+				BE94C1902146352100A8CD81 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE94C1912146352100A8CD81 /* Build configuration list for PBXNativeTarget "miit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE94C1922146352100A8CD81 /* Debug */,
+				BE94C1932146352100A8CD81 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE94C1942146352100A8CD81 /* Build configuration list for PBXNativeTarget "miitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE94C1952146352100A8CD81 /* Debug */,
+				BE94C1962146352100A8CD81 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE94C1972146352100A8CD81 /* Build configuration list for PBXNativeTarget "miitUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE94C1982146352100A8CD81 /* Debug */,
+				BE94C1992146352100A8CD81 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BE94C1612146352000A8CD81 /* Project object */;
+}
