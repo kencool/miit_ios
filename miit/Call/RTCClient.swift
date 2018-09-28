@@ -275,7 +275,7 @@ class RTCClient: NSObject, RTCPeerConnectionDelegate {
         let mandatory = [
             kRTCMediaConstraintsOfferToReceiveAudio: kRTCMediaConstraintsValueTrue,
             kRTCMediaConstraintsOfferToReceiveVideo: kRTCMediaConstraintsValueTrue,
-            kRTCMediaConstraintsVoiceActivityDetection: kRTCMediaConstraintsValueFalse
+            kRTCMediaConstraintsVoiceActivityDetection: kRTCMediaConstraintsValueFalse,
         ]
         return RTCMediaConstraints(mandatoryConstraints: mandatory, optionalConstraints: nil)
     }

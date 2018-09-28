@@ -17,6 +17,21 @@ class MICallEntryViewController: UIViewController, UITableViewDataSource, UITabl
     
     private var cacheTableView: UITableView!
     
+    private lazy var connectingLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = UIColor.white
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.text = "Connecting....."
+        label.sizeToFit()
+        label.isHidden = true
+        self.view.addSubview(label)
+        label.snp.makeConstraints{ make in
+            make.centerX.equalTo(callButton)
+            make.bottom.equalTo(callButton.snp.top).offset(-8)
+        }
+        return label
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -77,20 +92,25 @@ class MICallEntryViewController: UIViewController, UITableViewDataSource, UITabl
             self.presentAlertNotice(title: "Invalid Room", message: "Room ID is too long. Maximum is 16 characters.")
             return
         }
+        guard connectingLabel.isHidden else {
+            return
+        }
+        connectingLabel.isHidden = false
         
         let call = Call(roomID: roomID)
-        call.open { error in
+        call.open { [weak self] error in
             if error == nil {
                 let vc = MICallViewController(call: call)
-                self.present(vc, animated: true) { [weak self] in
+                self?.present(vc, animated: true) { [weak self] in
                     // update joined room list sliently
                     CallHistory.add(roomId: roomID)
                     self?.cacheTableView.reloadData()
                     self?.cacheTableView.contentOffset = CGPoint.zero
                 }
             } else {
-                self.presentAlertNotice(title: "Open Room Failed", message: "Please try again.")
+                self?.presentAlertNotice(title: "Open Room Failed", message: "Please try again.")
             }
+            self?.connectingLabel.isHidden = true
         }
     }
 
@@ -126,6 +146,7 @@ extension MICallEntryViewController {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         entryText.entryText.text = CallHistory.latestRoomIDs[indexPath.row]
+        callPressed()
     }
 }
 
