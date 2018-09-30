@@ -17,6 +17,7 @@ extension MICallViewController {
     func presentVideo(_ url: URL) {
         let v = VideoPresentView(url: url)
         presentFileView(v, displaySize: v.videoView.resolution)
+        v.videoView.play()
     }
     
     func presentFileView(_ view: UIView, displaySize: CGSize) {

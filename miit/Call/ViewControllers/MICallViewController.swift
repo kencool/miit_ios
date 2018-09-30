@@ -276,7 +276,7 @@ extension MICallViewController {
     }
     
     func call(_ call: Call, didReceiveVideo fileURL: URL) {
-        
+        presentVideo(fileURL)
     }
 }
 
