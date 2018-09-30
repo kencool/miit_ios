@@ -110,7 +110,11 @@ extension CallView {
         for format in formats {
             let pixelFormat: FourCharCode = CMFormatDescriptionGetMediaSubType(format.formatDescription)
             if pixelFormat == videoCapturer?.preferredOutputPixelFormat() {
-                selectedFormat = format
+                // constraint max dimension to 640x480
+                let resolution = CMVideoFormatDescriptionGetDimensions(format.formatDescription)
+                if resolution.width <= 640 {
+                    selectedFormat = format
+                }
             }
         }
         return selectedFormat ?? formats.first!

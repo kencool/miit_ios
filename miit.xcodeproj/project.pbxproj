@@ -13,6 +13,7 @@
 		BE1A5680215A872000BEC091 /* MICall+RoomInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1A567F215A872000BEC091 /* MICall+RoomInfo.swift */; };
 		BE1A5682215AC3FE00BEC091 /* CallHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1A5681215AC3FE00BEC091 /* CallHistory.swift */; };
 		BE1A568C215C016A00BEC091 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1A568B215C016A00BEC091 /* ChatView.swift */; };
+		BE1A56AB215FD9C100BEC091 /* VideoPresentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1A56AA215FD9C100BEC091 /* VideoPresentView.swift */; };
 		BE4A6F94214962A200DC9046 /* CallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4A6F93214962A200DC9046 /* CallView.swift */; };
 		BE4A6F962149908E00DC9046 /* CoreMediaExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4A6F952149908E00DC9046 /* CoreMediaExt.swift */; };
 		BE4A6FA8214AEBF800DC9046 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4A6FA7214AEBF800DC9046 /* Message.swift */; };
@@ -59,6 +60,18 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		BE1A56A6215E891C00BEC091 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0056DCD5A1051F58E59D02E8 /* Pods-miit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-miit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-miit/Pods-miit.debug.xcconfig"; sourceTree = "<group>"; };
 		163F11E9A2324D1A54CF4644 /* Pods-miitUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-miitUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-miitUITests/Pods-miitUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -69,6 +82,7 @@
 		BE1A567F215A872000BEC091 /* MICall+RoomInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MICall+RoomInfo.swift"; sourceTree = "<group>"; };
 		BE1A5681215AC3FE00BEC091 /* CallHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallHistory.swift; sourceTree = "<group>"; };
 		BE1A568B215C016A00BEC091 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		BE1A56AA215FD9C100BEC091 /* VideoPresentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPresentView.swift; sourceTree = "<group>"; };
 		BE4A6F93214962A200DC9046 /* CallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallView.swift; sourceTree = "<group>"; };
 		BE4A6F952149908E00DC9046 /* CoreMediaExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMediaExt.swift; sourceTree = "<group>"; };
 		BE4A6FA7214AEBF800DC9046 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -180,6 +194,7 @@
 				BE1A568B215C016A00BEC091 /* ChatView.swift */,
 				BE4A6FB9214C548600DC9046 /* MessageCell.swift */,
 				BE84576B2157D8A1001C557D /* ImageZoomView.swift */,
+				BE1A56AA215FD9C100BEC091 /* VideoPresentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -288,6 +303,7 @@
 				BE94C1662146352000A8CD81 /* Frameworks */,
 				BE94C1672146352000A8CD81 /* Resources */,
 				40C78FDD9A68514F7D2FC7B2 /* [CP] Embed Pods Frameworks */,
+				BE1A56A6215E891C00BEC091 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -515,6 +531,7 @@
 				BE94C1A82147A9BB00A8CD81 /* UIViewControllerExt.swift in Sources */,
 				BE4A6FA8214AEBF800DC9046 /* Message.swift in Sources */,
 				BE960190214EE0C900DEFBB3 /* CallToolBar.swift in Sources */,
+				BE1A56AB215FD9C100BEC091 /* VideoPresentView.swift in Sources */,
 				BE84576C2157D8A2001C557D /* ImageZoomView.swift in Sources */,
 				BE96019D2152A2F500DEFBB3 /* DataExt.swift in Sources */,
 				BE84576821579F3A001C557D /* MICall+FilePresent.swift in Sources */,
@@ -700,6 +717,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6P33NF7HGW;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = miit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -724,6 +745,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6P33NF7HGW;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = miit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (

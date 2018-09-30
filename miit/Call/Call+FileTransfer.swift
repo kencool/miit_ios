@@ -22,10 +22,28 @@ func getFileSize(meta: FileMeta) -> Int { return meta["filesize"] as! Int }
 
 // MARK: - File Type
 
-let acceptableFileTypes = ["png", "jpg", "jpeg"]
+enum FileType: String {
+    case png, jpg, jpeg
+    case mp4, mov
+
+    static let images: [FileType] = [.png, .jpg, .jpeg]
+    
+    static let videos: [FileType] = [.mp4, .mov]
+    
+    var isImage: Bool { return FileType.images.contains(self) }
+    
+    var isVideo: Bool { return FileType.videos.contains(self) }
+
+    init? (meta: FileMeta) {
+        guard let t = FileType(rawValue: getFilename(meta: meta).pathExtension.lowercased()) else {
+            return nil
+        }
+        self = t
+    }
+}
 
 func isFileAcceptable(meta: FileMeta) -> Bool {
-    return acceptableFileTypes.contains(getFilename(meta: meta).pathExtension.lowercased())
+    return FileType(meta: meta) != nil
 }
 
 // MARK: - File Transfer
@@ -41,6 +59,7 @@ class FileTransfer {
     
     class Task {
         let meta: FileMeta
+        let totalChunks: Int
         
         // for sending file
         let data: Data?
@@ -49,15 +68,25 @@ class FileTransfer {
         // for receiving file
         var receivedChunks: [Data] = []
         var inOrder: Int = 0
+        var fileOrder: Int = 0
         
-        init(meta: FileMeta) {
-            self.meta = meta
-            self.data = nil
+        lazy var fileHandle: FileHandle = {
+            return FileHandle(forWritingAtPath: filePath)!
+        }()
+        
+        var filePath: String {
+            let dirPath = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).first!
+            let fullPath = dirPath.appendingPathComponent(getFilename(meta: meta))
+            if !FileManager.default.fileExists(atPath: fullPath) {
+                FileManager.default.createFile(atPath: fullPath, contents: nil, attributes: nil)
+            }
+            return fullPath
         }
         
-        init(meta: FileMeta, data: Data) {
+        init(meta: FileMeta, data: Data? = nil) {
             self.meta = meta
             self.data = data
+            self.totalChunks = Int(ceil(Double(getFileSize(meta: meta)) / Double(FileTransfer.chunkSize)))
         }
     }
     
@@ -122,10 +151,10 @@ class FileTransfer {
             }
             start = UInt64(task.chunkIndex) * FileTransfer.chunkSize
             end = min(start + FileTransfer.chunkSize, UInt64(task.data!.count))
-            NSLog("reada \(start) to \(end)")
+            NSLog("read \(start) to \(end)")
             var data = Data(capacity: Int(end - start + 5))
             data.append(task.data![start..<end])
-            data.append(task.meta["fileid"] as! UInt8)
+            data.append(getFileId(meta: task.meta))
             data.append(uint32: task.chunkIndex)
             task.chunkIndex += 1
             
@@ -139,7 +168,7 @@ class FileTransfer {
         }
         // file transfer completed
         NSLog("send file completed, should send \(task.data!.count), actually sent \(end)")
-        sendingFiles[task.meta["filename"] as! String] = nil
+        sendingFiles[getFilename(meta: task.meta)] = nil
         
         Async.main { [weak self] in
             self?.delegate?.fileTransfer(self!, didFinishFile: task.meta)
@@ -154,7 +183,7 @@ class FileTransfer {
         sendingFiles[filename] = nil
     }
     
-    func receiveChunk(data: Data) -> (FileMeta, Data)? {
+    func receiveChunk(data: Data) -> (FileMeta, FileType, fileData: Data, filePath: String)? {
         let fileId = data[data.count - 5]
         guard let chunkIndex = data.getUint32(index: data.count - 4) else {
             NSLog("can't get chunk index !!!!")
@@ -182,16 +211,17 @@ class FileTransfer {
             }
             task.receivedChunks.insert(data, at: order)
         }
-        // generate file if completed
+        
+        // progress callback
         let meta = task.meta
-        let fileSize = meta["filesize"] as! Int
-        let totalChunks = Int(ceil(Double(fileSize) / Double(FileTransfer.chunkSize)))
         Async.main { [weak self] in
-            let progress = CGFloat(task.receivedChunks.count) / CGFloat(totalChunks)
+            let progress = CGFloat(task.receivedChunks.count) / CGFloat(task.totalChunks)
             self?.delegate?.fileTransfer(self!, file: meta, didUpdate: progress)
         }
-        if task.receivedChunks.count >= totalChunks {
+        // generate file if completed
+        if task.receivedChunks.count >= task.totalChunks {
             // generate file
+            let fileSize = getFileSize(meta: meta)
             var data = Data(capacity: fileSize)
             for v in task.receivedChunks {
                 data.append(v[0..<v.count - 5])
@@ -201,7 +231,7 @@ class FileTransfer {
                 self?.delegate?.fileTransfer(self!, didFinishFile: meta)
             }
             receivingFiles[meta["fileid"] as! UInt8] = nil
-            return (meta, data)
+            return (meta, FileType(meta: meta)!, data, task.filePath)
         }
         return nil
     }
@@ -272,10 +302,18 @@ extension Call {
         }
     }
     
-    func receiveFileChunk(data: Data) -> UIImage? {
-        if let x = fileTransfer.receiveChunk(data: data) {
-            let image = UIImage(data: x.1)
-            return image
+    func receiveFileChunk(data: Data) -> (image: UIImage?, filePath: String?)? {
+        guard let x = fileTransfer.receiveChunk(data: data) else {
+            return nil
+        }
+        if x.1.isImage {
+            let image = UIImage(data: x.2)
+            return (image, nil)
+        } else if x.1.isVideo {
+            try? x.2.write(to: URL(fileURLWithPath: x.3))
+            return (nil, x.3)
+        } else {
+            NSLog("Unsupported file type.")
         }
         return nil
     }

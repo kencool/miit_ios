@@ -57,7 +57,7 @@ class MICallViewController: UIViewController, CallViewDelegate, CallToolBarDeleg
     
     // MARK: - File Presentation Properties
     
-    var filePresentView: ImageZoomView?
+    var filePresentView: UIView?
     
     var filePresentShrinkFrame: CGRect?
     
@@ -245,6 +245,7 @@ extension MICallViewController {
             guard let meta = json["payload"].dictionaryObject else {
                 return
             }
+            
             guard isFileAcceptable(meta: meta) else {
                 self.presentAlertNotice(title: "Unacceptable File", message: "Sorry, \(call.mitterName ?? "peer") wants to share an unsupported file. We only support receiving image files now.")
                 call.decline(meta: meta)
@@ -272,6 +273,10 @@ extension MICallViewController {
     
     func call(_ call: Call, didReceiveImage image: UIImage) {
         presentImage(image)
+    }
+    
+    func call(_ call: Call, didReceiveVideo fileURL: URL) {
+        
     }
 }
 

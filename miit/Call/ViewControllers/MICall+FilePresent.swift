@@ -11,8 +11,17 @@ import UIKit
 extension MICallViewController {
     
     func presentImage(_ image: UIImage) {
+        presentFileView(ImageZoomView(image: image), displaySize: image.size)
+    }
+    
+    func presentVideo(_ url: URL) {
+        let v = VideoPresentView(url: url)
+        presentFileView(v, displaySize: v.videoView.resolution)
+    }
+    
+    func presentFileView(_ view: UIView, displaySize: CGSize) {
         filePresentView?.removeFromSuperview()
-        filePresentView = ImageZoomView(image: image)
+        filePresentView = view
         filePresentView?.backgroundColor = UIColor(white: 0, alpha: 0.6)
         filePresentView?.frame = self.view.bounds
         self.view.addSubview(filePresentView!)
@@ -24,9 +33,9 @@ extension MICallViewController {
         filePresentView?.addGestureRecognizer(pan)
         
         // calculate shrink frame and scale
-        let isVertical = image.size.width < image.size.height
-        let width = isVertical ? image.size.width * 120 / image.size.height : 120
-        let height = isVertical ? 120 : image.size.height * 120 / image.size.width
+        let isVertical = displaySize.width < displaySize.height
+        let width = isVertical ? displaySize.width * 120 / displaySize.height : 120
+        let height = isVertical ? 120 : displaySize.height * 120 / displaySize.width
         filePresentShrinkFrame = CGRect(x: callView.localVideoView.x - 8 - width, y: callView.localVideoView.center.y - height / 2, width: width, height: height)
         filePresentShrinkMinimumScale = isVertical ? height / filePresentView!.height : width / filePresentView!.width
     }
