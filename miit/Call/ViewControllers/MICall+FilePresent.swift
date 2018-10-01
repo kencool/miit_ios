@@ -11,7 +11,7 @@ import UIKit
 extension MICallViewController {
     
     func presentImage(_ image: UIImage) {
-        presentFileView(ImageZoomView(image: image), displaySize: image.size)
+        presentFileView(ImagePresentView(image: image), displaySize: image.size)
     }
     
     func presentVideo(_ url: URL) {
@@ -20,15 +20,15 @@ extension MICallViewController {
         v.videoView.play()
     }
     
-    func presentFileView(_ view: UIView, displaySize: CGSize) {
+    func presentFileView(_ view: FilePresentView, displaySize: CGSize) {
         filePresentView?.removeFromSuperview()
         filePresentView = view
-        filePresentView?.backgroundColor = UIColor(white: 0, alpha: 0.6)
         filePresentView?.frame = self.view.bounds
-        self.view.addSubview(filePresentView!)
+        self.view.addSubview(view)
         
-        // file presentation will override pan gesture to shrink
+        // file presentation will override gestures to shrink
         panGesture.isEnabled = false
+        tapGesture.isEnabled = false
         let pan = UIPanGestureRecognizer(target: self, action: #selector(panFilePresent(_:)))
         pan.delegate = self
         filePresentView?.addGestureRecognizer(pan)
@@ -49,8 +49,8 @@ extension MICallViewController {
         switch gr.state {
         case .began:
             panStart = point
-            // no background mask while shrinking, which looks clearer
-            filePresentView?.backgroundColor = nil
+            // start floating
+            filePresentView?.isFloating = true
         case .changed:
             if offset < 0 {
                 filePresentView?.frame.size = CGSize(width: self.view.width * scale, height: self.view.height * scale)
@@ -62,11 +62,12 @@ extension MICallViewController {
                 // shrink to smallest and resume original pan gesture
                 shrinkFilePresent()
                 panGesture.isEnabled = true
+                tapGesture.isEnabled = true
             } else {
                 filePresentView?.frame = self.view.bounds
             }
-            // shrink ended, resume background mask
-            filePresentView?.backgroundColor = UIColor(white: 0, alpha: 0.6)
+            // shrink ended, stop floating
+            filePresentView?.isFloating = false
         default:
             break
         }
@@ -89,6 +90,7 @@ extension MICallViewController {
     @objc func enlargeFilePresent() {
         // back to full screen file presentation
         panGesture.isEnabled = false
+        tapGesture.isEnabled = false
         filePresentView?.removeGestureRecognizers()
         
         UIView.animate(withDuration: 0.2) { [weak self] in

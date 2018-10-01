@@ -22,6 +22,7 @@ PODS:
   - SwifterSwift/UIKit (4.4.0)
   - SwiftyJSON (4.1.0)
   - UICircularProgressRing (3.3.2)
+  - ZoomImageView (0.4.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
@@ -31,6 +32,7 @@ DEPENDENCIES:
   - SwifterSwift
   - SwiftyJSON (~> 4.1)
   - UICircularProgressRing
+  - ZoomImageView
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -41,6 +43,7 @@ SPEC REPOS:
     - SwifterSwift
     - SwiftyJSON
     - UICircularProgressRing
+    - ZoomImageView
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
@@ -50,7 +53,8 @@ SPEC CHECKSUMS:
   SwifterSwift: 1ce0e31801ddd3a2bd3256626275425adb01067a
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
   UICircularProgressRing: f5efb3e1fd8387bfd59f71738501d68f58b7e84e
+  ZoomImageView: 25559e92b53db499681706b61024bd4906e57abe
 
-PODFILE CHECKSUM: 089bc089e7258da6c69b10ecfac619a619f1010d
+PODFILE CHECKSUM: fefd9f2462eb6fc57395519194b4598675e5487e
 
 COCOAPODS: 1.5.3

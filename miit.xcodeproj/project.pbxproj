@@ -14,6 +14,8 @@
 		BE1A5682215AC3FE00BEC091 /* CallHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1A5681215AC3FE00BEC091 /* CallHistory.swift */; };
 		BE1A568C215C016A00BEC091 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1A568B215C016A00BEC091 /* ChatView.swift */; };
 		BE1A56AB215FD9C100BEC091 /* VideoPresentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1A56AA215FD9C100BEC091 /* VideoPresentView.swift */; };
+		BE45932B216159D100955C17 /* FilePresentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE45932A216159D100955C17 /* FilePresentView.swift */; };
+		BE45933E2162459A00955C17 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE45933D2162459A00955C17 /* Alert.swift */; };
 		BE4A6F94214962A200DC9046 /* CallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4A6F93214962A200DC9046 /* CallView.swift */; };
 		BE4A6F962149908E00DC9046 /* CoreMediaExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4A6F952149908E00DC9046 /* CoreMediaExt.swift */; };
 		BE4A6FA8214AEBF800DC9046 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4A6FA7214AEBF800DC9046 /* Message.swift */; };
@@ -22,7 +24,7 @@
 		BE8457642156BAC6001C557D /* Miit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8457632156BAC6001C557D /* Miit.swift */; };
 		BE84576621578FCF001C557D /* MICall+Gesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE84576521578FCF001C557D /* MICall+Gesture.swift */; };
 		BE84576821579F3A001C557D /* MICall+FilePresent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE84576721579F3A001C557D /* MICall+FilePresent.swift */; };
-		BE84576C2157D8A2001C557D /* ImageZoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE84576B2157D8A1001C557D /* ImageZoomView.swift */; };
+		BE84576C2157D8A2001C557D /* ImagePresentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE84576B2157D8A1001C557D /* ImagePresentView.swift */; };
 		BE94C16D2146352000A8CD81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE94C16C2146352000A8CD81 /* AppDelegate.swift */; };
 		BE94C1722146352000A8CD81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE94C1702146352000A8CD81 /* Main.storyboard */; };
 		BE94C1742146352100A8CD81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE94C1732146352100A8CD81 /* Assets.xcassets */; };
@@ -83,6 +85,8 @@
 		BE1A5681215AC3FE00BEC091 /* CallHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallHistory.swift; sourceTree = "<group>"; };
 		BE1A568B215C016A00BEC091 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		BE1A56AA215FD9C100BEC091 /* VideoPresentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPresentView.swift; sourceTree = "<group>"; };
+		BE45932A216159D100955C17 /* FilePresentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePresentView.swift; sourceTree = "<group>"; };
+		BE45933D2162459A00955C17 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		BE4A6F93214962A200DC9046 /* CallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallView.swift; sourceTree = "<group>"; };
 		BE4A6F952149908E00DC9046 /* CoreMediaExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMediaExt.swift; sourceTree = "<group>"; };
 		BE4A6FA7214AEBF800DC9046 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -91,7 +95,7 @@
 		BE8457632156BAC6001C557D /* Miit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Miit.swift; sourceTree = "<group>"; };
 		BE84576521578FCF001C557D /* MICall+Gesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MICall+Gesture.swift"; sourceTree = "<group>"; };
 		BE84576721579F3A001C557D /* MICall+FilePresent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MICall+FilePresent.swift"; sourceTree = "<group>"; };
-		BE84576B2157D8A1001C557D /* ImageZoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageZoomView.swift; sourceTree = "<group>"; };
+		BE84576B2157D8A1001C557D /* ImagePresentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePresentView.swift; sourceTree = "<group>"; };
 		BE94C1692146352000A8CD81 /* miit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = miit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE94C16C2146352000A8CD81 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE94C1712146352000A8CD81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -193,7 +197,8 @@
 				BE96018F214EE0C900DEFBB3 /* CallToolBar.swift */,
 				BE1A568B215C016A00BEC091 /* ChatView.swift */,
 				BE4A6FB9214C548600DC9046 /* MessageCell.swift */,
-				BE84576B2157D8A1001C557D /* ImageZoomView.swift */,
+				BE45932A216159D100955C17 /* FilePresentView.swift */,
+				BE84576B2157D8A1001C557D /* ImagePresentView.swift */,
 				BE1A56AA215FD9C100BEC091 /* VideoPresentView.swift */,
 			);
 			path = Views;
@@ -237,6 +242,7 @@
 				BE94C16C2146352000A8CD81 /* AppDelegate.swift */,
 				BE94C1A021465BF900A8CD81 /* Utils.swift */,
 				BE8457632156BAC6001C557D /* Miit.swift */,
+				BE45933D2162459A00955C17 /* Alert.swift */,
 				BE94C1702146352000A8CD81 /* Main.storyboard */,
 				BE94C1732146352100A8CD81 /* Assets.xcassets */,
 				BE94C1752146352100A8CD81 /* LaunchScreen.storyboard */,
@@ -455,6 +461,7 @@
 				"${BUILT_PRODUCTS_DIR}/SwifterSwift/SwifterSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/UICircularProgressRing/UICircularProgressRing.framework",
+				"${BUILT_PRODUCTS_DIR}/ZoomImageView/ZoomImageView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -465,6 +472,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwifterSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICircularProgressRing.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZoomImageView.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -520,6 +528,7 @@
 				BE1A568C215C016A00BEC091 /* ChatView.swift in Sources */,
 				BE94C1A52147A3B200A8CD81 /* Call.swift in Sources */,
 				BE845762215624F6001C557D /* UIImageExt.swift in Sources */,
+				BE45933E2162459A00955C17 /* Alert.swift in Sources */,
 				BE96019B21516FC000DEFBB3 /* Call+FileTransfer.swift in Sources */,
 				BE8457642156BAC6001C557D /* Miit.swift in Sources */,
 				BE94C19D21464E8A00A8CD81 /* MICallViewController.swift in Sources */,
@@ -527,12 +536,13 @@
 				BE94C19F21464F2100A8CD81 /* MICallEntryViewController.swift in Sources */,
 				BE4A6F962149908E00DC9046 /* CoreMediaExt.swift in Sources */,
 				BE94C1AA2147B5DB00A8CD81 /* UIViewExt.swift in Sources */,
+				BE45932B216159D100955C17 /* FilePresentView.swift in Sources */,
 				BE94C1A32146EC0F00A8CD81 /* Api.swift in Sources */,
 				BE94C1A82147A9BB00A8CD81 /* UIViewControllerExt.swift in Sources */,
 				BE4A6FA8214AEBF800DC9046 /* Message.swift in Sources */,
 				BE960190214EE0C900DEFBB3 /* CallToolBar.swift in Sources */,
 				BE1A56AB215FD9C100BEC091 /* VideoPresentView.swift in Sources */,
-				BE84576C2157D8A2001C557D /* ImageZoomView.swift in Sources */,
+				BE84576C2157D8A2001C557D /* ImagePresentView.swift in Sources */,
 				BE96019D2152A2F500DEFBB3 /* DataExt.swift in Sources */,
 				BE84576821579F3A001C557D /* MICall+FilePresent.swift in Sources */,
 				BE1A5680215A872000BEC091 /* MICall+RoomInfo.swift in Sources */,

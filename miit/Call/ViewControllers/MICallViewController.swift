@@ -10,6 +10,7 @@ import UIKit
 import SwiftyJSON
 import UICircularProgressRing
 import Async
+import MobileCoreServices
 
 class MICallViewController: UIViewController, CallViewDelegate, CallToolBarDelegate, ChatViewDelegate, CallMessageDelegate, FileTransferDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate, UIScrollViewDelegate {
     
@@ -57,7 +58,7 @@ class MICallViewController: UIViewController, CallViewDelegate, CallToolBarDeleg
     
     // MARK: - File Presentation Properties
     
-    var filePresentView: UIView?
+    var filePresentView: FilePresentView?
     
     var filePresentShrinkFrame: CGRect?
     
@@ -207,7 +208,7 @@ extension MICallViewController {
     func callView(_ callView: CallView, didStop error: Error?) {
         if error != nil {
             self.dismiss(animated: true, completion: nil)
-            self.presentingViewController?.presentAlertNotice(title: "Disconnected", message: "The call is ended.")
+            self.presentingViewController?.presentAlertNotice(title: "Disconnected", message: error!.localizedDescription)
         }
     }
 }
@@ -300,6 +301,7 @@ extension MICallViewController {
     func callToolBarDidSelectPhoto(_ toolBar: CallToolBar) {
         let picker = UIImagePickerController()
         picker.sourceType = .photoLibrary
+        picker.mediaTypes = [kUTTypeImage as String, kUTTypeMovie as String]
         picker.allowsEditing = false
         picker.delegate = self
         self.present(picker, animated: true, completion: nil)
@@ -317,9 +319,19 @@ extension MICallViewController {
 extension MICallViewController {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let image: UIImage = (info[UIImagePickerControllerEditedImage] ?? info[UIImagePickerControllerOriginalImage]) as! UIImage
-        call.send(image: UIImage.fixImageOrientation(image))
         self.dismiss(animated: true, completion: nil)
+        
+        switch info[UIImagePickerControllerMediaType] as? String {
+        case "public.movie":
+            let url = info[UIImagePickerControllerMediaURL] as! URL
+            call.send(fileURL: url)
+            
+        case "public.image":
+            let image: UIImage = (info[UIImagePickerControllerEditedImage] ?? info[UIImagePickerControllerOriginalImage]) as! UIImage
+            call.send(image: UIImage.fixImageOrientation(image))
+        default:
+            return
+        }
         self.presentAlertNotice(title: "Send File", message: "Waiting for \(call.mitterName ?? "peer") accept.")
     }
 }

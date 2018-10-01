@@ -114,9 +114,20 @@ class FileTransfer {
         guard let data = UIImagePNGRepresentation(image) else {
             return nil
         }
+        return requestSend(data: data, pathExtension: "png")
+    }
+    
+    func requestSend(url: URL) -> FileMeta? {
+        guard let data = try? Data(contentsOf: url) else {
+            return nil
+        }
+        return requestSend(data: data, pathExtension: url.pathExtension)
+    }
+    
+    func requestSend(data: Data, pathExtension: String) -> FileMeta? {
         fileSent += 1
         let fileid = fileSent
-        let filename = dateFormatter.string(from: Date()) + ".png"
+        let filename = dateFormatter.string(from: Date()).appendingPathExtension(pathExtension)!
         let meta: FileMeta = [
             "fileid": fileid,
             "filename": filename,
@@ -255,9 +266,25 @@ extension Call {
             NSLog("file data channel is not opened")
             return
         }
-        
         guard let meta = fileTransfer.requestSend(image: image) else {
             NSLog("can't create data for image")
+            return
+        }
+        let dict: [String:Any] = [
+            "sender": MyName,
+            "type": "fileinfo",
+            "payload": meta
+        ]
+        send(json: JSON(dict))
+    }
+    
+    func send(fileURL: URL) {
+        guard let channel = client.fileDataChannel, channel.readyState == .open else {
+            NSLog("file data channel is not opened")
+            return
+        }
+        guard let meta = fileTransfer.requestSend(url: fileURL) else {
+            NSLog("can't open video file \(fileURL)")
             return
         }
         let dict: [String:Any] = [

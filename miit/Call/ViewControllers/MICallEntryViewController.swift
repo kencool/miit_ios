@@ -85,11 +85,11 @@ class MICallEntryViewController: UIViewController, UITableViewDataSource, UITabl
     @objc func callPressed() {
         let roomID = entryText.text
         guard !roomID.isEmpty else {
-            self.presentAlertNotice(title: "Invalid Room", message: "Room ID can't be empty.")
+            Alert.show(title: "Invalid Room", message: "Room ID can't be empty.")
             return
         }
         guard roomID.count <= 16 else {
-            self.presentAlertNotice(title: "Invalid Room", message: "Room ID is too long. Maximum is 16 characters.")
+            Alert.show(title: "Invalid Room", message: "Room ID is too long. Maximum is 16 characters.")
             return
         }
         guard connectingLabel.isHidden else {
@@ -108,7 +108,7 @@ class MICallEntryViewController: UIViewController, UITableViewDataSource, UITabl
                     self?.cacheTableView.contentOffset = CGPoint.zero
                 }
             } else {
-                self?.presentAlertNotice(title: "Open Room Failed", message: "Please try again.")
+                self?.presentAlertNotice(title: "Open Room Failed", message: error!.localizedDescription)
             }
             self?.connectingLabel.isHidden = true
         }

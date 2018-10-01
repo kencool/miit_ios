@@ -12,6 +12,7 @@ target 'miit' do
   pod 'AsyncSwift'
   pod 'UICircularProgressRing'
   pod 'SwifterSwift'
+  pod 'ZoomImageView'
 
   target 'miitTests' do
     inherit! :search_paths
