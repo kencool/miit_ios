@@ -14,9 +14,9 @@ class VideoPresentView: FilePresentView {
     
     private(set) var videoView: VideoView!
     
-    init(url: URL) {
+    init(url: URL, meta: FileMeta) {
         self.url = url
-        super.init(frame: CGRect.zero)
+        super.init(meta: meta)
     }
     
     required init?(coder aDecoder: NSCoder) {

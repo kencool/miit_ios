@@ -10,6 +10,8 @@ import UIKit
 
 protocol CallToolBarDelegate: class {
     
+    func callToolBarDidSelectCloud(_ toolBar: CallToolBar)
+    
     func callToolBarDidSelectPhoto(_ toolBar: CallToolBar)
     
     func callToolBar(_ toolBar: CallToolBar, didSwitchVideo on: Bool)
@@ -21,6 +23,8 @@ class CallToolBar: UIView {
 
     weak var delegate: CallToolBarDelegate?
     
+    private var cloudButton: UIButton!
+    
     private var photoButton: UIButton!
     
     private var videoButton: UIButton!
@@ -29,11 +33,18 @@ class CallToolBar: UIView {
     
     init() {
         let size = CGSize(width: 50, height: 40)
-        super.init(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: size.width, height: size.height * 3)))
-        
+        super.init(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: size.width, height: size.height * 4)))
+        self.clipsToBounds = true
+        cloudButton = self.addButton(imageName: "cloud", self, action: #selector(cloudPressed))
+        cloudButton.contentMode = .scaleAspectFit
+        cloudButton.snp.makeConstraints { make in
+            make.left.top.right.equalTo(self)
+            make.height.equalTo(size.height)
+        }
         photoButton = self.addButton(imageName:"album_photo", self, action: #selector(photoPressed))
         photoButton.snp.makeConstraints { make in
-            make.left.top.right.equalTo(self)
+            make.left.right.equalTo(self)
+            make.top.equalTo(cloudButton.snp.bottom)
             make.height.equalTo(size.height)
         }
         videoButton = self.addButton(imageName:"video_on", self, action: #selector(videoPressed))
@@ -64,6 +75,10 @@ class CallToolBar: UIView {
 }
 
 extension CallToolBar {
+    
+    @objc func cloudPressed() {
+        delegate?.callToolBarDidSelectCloud(self)
+    }
     
     @objc func photoPressed() {
         delegate?.callToolBarDidSelectPhoto(self)

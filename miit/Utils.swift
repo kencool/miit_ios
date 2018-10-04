@@ -25,4 +25,11 @@ extension UIView {
     var central: CGPoint { return CGPoint(x: self.frame.midX, y: self.frame.midY) }
 }
 
-let MyName = UIDevice.current.name
+var MyName: String {
+    get {
+        return UserDefaults.standard.string(forKey: "name") ?? UIDevice.current.name
+    }
+    set {
+        UserDefaults.standard.set(newValue, forKey: "name")
+    }
+}

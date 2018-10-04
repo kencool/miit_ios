@@ -25,6 +25,7 @@ func getFileSize(meta: FileMeta) -> Int { return meta["filesize"] as! Int }
 enum FileType: String {
     case png, jpg, jpeg
     case mp4, mov
+    case pdf
 
     static let images: [FileType] = [.png, .jpg, .jpeg]
     
@@ -329,18 +330,18 @@ extension Call {
         }
     }
     
-    func receiveFileChunk(data: Data) -> (image: UIImage?, filePath: String?)? {
+    func receiveFileChunk(data: Data) -> (meta: FileMeta, type: FileType, data: Data?, image: UIImage?, filePath: String?)? {
         guard let x = fileTransfer.receiveChunk(data: data) else {
             return nil
         }
         if x.1.isImage {
             let image = UIImage(data: x.2)
-            return (image, nil)
+            return (x.0, x.1, nil, image, nil)
         } else if x.1.isVideo {
             try? x.2.write(to: URL(fileURLWithPath: x.3))
-            return (nil, x.3)
+            return (x.0, x.1, nil, nil, x.3)
         } else {
-            NSLog("Unsupported file type.")
+            return (x.0, x.1, x.2, nil, nil)
         }
         return nil
     }

@@ -16,6 +16,9 @@
 		BE1A56AB215FD9C100BEC091 /* VideoPresentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1A56AA215FD9C100BEC091 /* VideoPresentView.swift */; };
 		BE45932B216159D100955C17 /* FilePresentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE45932A216159D100955C17 /* FilePresentView.swift */; };
 		BE45933E2162459A00955C17 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE45933D2162459A00955C17 /* Alert.swift */; };
+		BE4593512163DCCF00955C17 /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4593502163DCCF00955C17 /* PDFViewController.swift */; };
+		BE459353216402FF00955C17 /* PDFPresentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE459352216402FF00955C17 /* PDFPresentView.swift */; };
+		BE4593602165B47D00955C17 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE45935F2165B47D00955C17 /* Storage.swift */; };
 		BE4A6F94214962A200DC9046 /* CallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4A6F93214962A200DC9046 /* CallView.swift */; };
 		BE4A6F962149908E00DC9046 /* CoreMediaExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4A6F952149908E00DC9046 /* CoreMediaExt.swift */; };
 		BE4A6FA8214AEBF800DC9046 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4A6FA7214AEBF800DC9046 /* Message.swift */; };
@@ -87,6 +90,10 @@
 		BE1A56AA215FD9C100BEC091 /* VideoPresentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPresentView.swift; sourceTree = "<group>"; };
 		BE45932A216159D100955C17 /* FilePresentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePresentView.swift; sourceTree = "<group>"; };
 		BE45933D2162459A00955C17 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		BE4593502163DCCF00955C17 /* PDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
+		BE459352216402FF00955C17 /* PDFPresentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFPresentView.swift; sourceTree = "<group>"; };
+		BE45935E2165B08F00955C17 /* miit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = miit.entitlements; sourceTree = "<group>"; };
+		BE45935F2165B47D00955C17 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		BE4A6F93214962A200DC9046 /* CallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallView.swift; sourceTree = "<group>"; };
 		BE4A6F952149908E00DC9046 /* CoreMediaExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMediaExt.swift; sourceTree = "<group>"; };
 		BE4A6FA7214AEBF800DC9046 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -200,6 +207,7 @@
 				BE45932A216159D100955C17 /* FilePresentView.swift */,
 				BE84576B2157D8A1001C557D /* ImagePresentView.swift */,
 				BE1A56AA215FD9C100BEC091 /* VideoPresentView.swift */,
+				BE459352216402FF00955C17 /* PDFPresentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -210,6 +218,14 @@
 				BE94C1A22146EC0F00A8CD81 /* Api.swift */,
 			);
 			path = Api;
+			sourceTree = "<group>";
+		};
+		BE45934F2163DC6000955C17 /* PDFViewer */ = {
+			isa = PBXGroup;
+			children = (
+				BE4593502163DCCF00955C17 /* PDFViewController.swift */,
+			);
+			path = PDFViewer;
 			sourceTree = "<group>";
 		};
 		BE94C1602146352000A8CD81 = {
@@ -237,12 +253,14 @@
 		BE94C16B2146352000A8CD81 /* miit */ = {
 			isa = PBXGroup;
 			children = (
+				BE45935E2165B08F00955C17 /* miit.entitlements */,
 				BE94C19B21464DFC00A8CD81 /* Call */,
 				BE94C1A62147A9A300A8CD81 /* Extension */,
 				BE94C16C2146352000A8CD81 /* AppDelegate.swift */,
 				BE94C1A021465BF900A8CD81 /* Utils.swift */,
 				BE8457632156BAC6001C557D /* Miit.swift */,
 				BE45933D2162459A00955C17 /* Alert.swift */,
+				BE45935F2165B47D00955C17 /* Storage.swift */,
 				BE94C1702146352000A8CD81 /* Main.storyboard */,
 				BE94C1732146352100A8CD81 /* Assets.xcassets */,
 				BE94C1752146352100A8CD81 /* LaunchScreen.storyboard */,
@@ -276,6 +294,7 @@
 				BE1A5694215D61DA00BEC091 /* Api */,
 				BE1A5692215D612C00BEC091 /* ViewControllers */,
 				BE1A5693215D618D00BEC091 /* Views */,
+				BE45934F2163DC6000955C17 /* PDFViewer */,
 				BE94C1A42147A3B200A8CD81 /* Call.swift */,
 				BE96019A21516FC000DEFBB3 /* Call+FileTransfer.swift */,
 				BE94C1AD2147C10200A8CD81 /* RTCClient.swift */,
@@ -370,6 +389,11 @@
 				TargetAttributes = {
 					BE94C1682146352000A8CD81 = {
 						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					BE94C17C2146352100A8CD81 = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -529,6 +553,7 @@
 				BE94C1A52147A3B200A8CD81 /* Call.swift in Sources */,
 				BE845762215624F6001C557D /* UIImageExt.swift in Sources */,
 				BE45933E2162459A00955C17 /* Alert.swift in Sources */,
+				BE459353216402FF00955C17 /* PDFPresentView.swift in Sources */,
 				BE96019B21516FC000DEFBB3 /* Call+FileTransfer.swift in Sources */,
 				BE8457642156BAC6001C557D /* Miit.swift in Sources */,
 				BE94C19D21464E8A00A8CD81 /* MICallViewController.swift in Sources */,
@@ -540,6 +565,8 @@
 				BE94C1A32146EC0F00A8CD81 /* Api.swift in Sources */,
 				BE94C1A82147A9BB00A8CD81 /* UIViewControllerExt.swift in Sources */,
 				BE4A6FA8214AEBF800DC9046 /* Message.swift in Sources */,
+				BE4593602165B47D00955C17 /* Storage.swift in Sources */,
+				BE4593512163DCCF00955C17 /* PDFViewController.swift in Sources */,
 				BE960190214EE0C900DEFBB3 /* CallToolBar.swift in Sources */,
 				BE1A56AB215FD9C100BEC091 /* VideoPresentView.swift in Sources */,
 				BE84576C2157D8A2001C557D /* ImagePresentView.swift in Sources */,
@@ -723,6 +750,7 @@
 			baseConfigurationReference = 0056DCD5A1051F58E59D02E8 /* Pods-miit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = miit/miit.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6P33NF7HGW;
@@ -751,6 +779,7 @@
 			baseConfigurationReference = F4AE2B9648B635F78E6B9F66 /* Pods-miit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = miit/miit.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6P33NF7HGW;

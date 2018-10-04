@@ -17,9 +17,9 @@ class ImagePresentView: FilePresentView {
     
     var isImageVertical: Bool { return image.size.width < image.size.height }
     
-    init(image: UIImage) {
+    init(image: UIImage, meta: FileMeta) {
         self.image = image
-        super.init(frame: CGRect.zero)
+        super.init(meta: meta)
     }
     
     required init?(coder aDecoder: NSCoder) {

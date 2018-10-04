@@ -27,9 +27,11 @@ protocol CallMessageDelegate: class {
     
     func call(_ call: Call, dldReceiveMessage json: JSON)
     
-    func call(_ call: Call, didReceiveImage image: UIImage)
+    func call(_ call: Call, didReceiveImage image: UIImage, meta: FileMeta)
     
-    func call(_ call: Call, didReceiveVideo fileURL: URL)
+    func call(_ call: Call, didReceiveVideo fileURL: URL, meta: FileMeta)
+    
+    func call(_ call: Call, didReceiveFile data: Data, meta: FileMeta, type: FileType)
 }
 
 class Call: NSObject, RTCClientDelegate, RTCDataChannelDelegate {
@@ -272,9 +274,11 @@ extension Call {
             if let result = receiveFileChunk(data: buffer.data) {
                 Async.main { [weak self] in
                     if let img = result.image {
-                        self?.messageDelegate?.call(self!, didReceiveImage: img)
+                        self?.messageDelegate?.call(self!, didReceiveImage: img, meta: result.meta)
                     } else if let video = result.filePath {
-                        self?.messageDelegate?.call(self!, didReceiveVideo: URL(fileURLWithPath: video))
+                        self?.messageDelegate?.call(self!, didReceiveVideo: URL(fileURLWithPath: video), meta: result.meta)
+                    } else if let data = result.data {
+                        self?.messageDelegate?.call(self!, didReceiveFile: data, meta: result.meta, type: result.type)
                     }
                 }
             }

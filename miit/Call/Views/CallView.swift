@@ -23,6 +23,17 @@ class CallView: UIView, CallDelegate, RTCEAGLVideoViewDelegate {
     
     fileprivate(set) var localVideoView: RTCCameraPreviewView!
     
+    private lazy var previewMask: UIView = {
+        let v = UIView()
+        v.isHidden = true
+        v.backgroundColor = UIColor.black
+        localVideoView.addSubview(v)
+        v.snp.makeConstraints{ make in
+            make.edges.equalToSuperview()
+        }
+        return v
+    }()
+    
     fileprivate var remoteVideoTrack: RTCVideoTrack?
 
     var videoCapturer: RTCCameraVideoCapturer? { get { return call.client.videoCapturer } }
@@ -75,6 +86,10 @@ class CallView: UIView, CallDelegate, RTCEAGLVideoViewDelegate {
         }
         // Aspect fit remote video into bounds.
         remoteVideoView.frame = AVMakeRect(aspectRatio: remoteVideoSize, insideRect: self.bounds)
+    }
+    
+    func setPreviewMasked(on: Bool) {
+        previewMask.isHidden = !on
     }
 }
 

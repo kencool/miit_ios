@@ -16,6 +16,8 @@ extension MICallViewController {
             // horizontal panning for toggling full screen
             let v = (gestureRecognizer as! UIPanGestureRecognizer).velocity(in: gestureRecognizer.view)
             return v.y.abs < v.x.abs
+        } else if gestureRecognizer.view == filePresentView {
+            return filePresentView!.panGestureShouldBegin(gestureRecognizer)
         }
         return true
     }

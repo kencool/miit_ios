@@ -15,7 +15,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.11</string>
+	<string>1.0.12</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSApplicationCategoryType</key>
@@ -53,5 +53,17 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+    <key>NSUbiquitousContainers</key>
+    <dict>
+        <key>iCloud.tech.nabawan.miit</key>
+        <dict>
+            <key>NSUbiquitousContainerIsDocumentScopePublic</key>
+            <true/>
+            <key>NSUbiquitousContainerName</key>
+            <string>miit</string>
+            <key>NSUbiquitousContainerSupportedFolderLevels</key>
+            <string>Any</string>
+        </dict>
+    </dict>
 </dict>
 </plist>

@@ -13,6 +13,8 @@ class MICallEntryViewController: UIViewController, UITableViewDataSource, UITabl
 
     private var entryText: MICallEntryTextField!
     
+    private var nameButton: UIButton!
+    
     private var callButton: UIButton!
     
     private var cacheTableView: UITableView!
@@ -59,6 +61,20 @@ class MICallEntryViewController: UIViewController, UITableViewDataSource, UITabl
             make.center.equalTo(self.view)
         }
         
+        // name button
+        nameButton = self.view.addButton(title: MyName, self, action: #selector(namePressed))
+        nameButton.setTitleColor(UIColor.white, for: .normal)
+        nameButton.setTitleColor(UIColor.lightGray, for: .highlighted)
+        nameButton.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        nameButton.shadowColor = UIColor.black
+        nameButton.shadowOffset = CGSize(width: 1, height: 1)
+        nameButton.shadowOpacity = 1
+        nameButton.shadowRadius = 1
+        nameButton.snp.makeConstraints { make in
+            make.top.equalTo(entryText.snp.bottom).offset(8)
+            make.left.equalTo(entryText).offset(4)
+        }
+        
         // joined room cache
         cacheTableView = UITableView(frame: CGRect.zero, style: .plain)
         cacheTableView.backgroundColor = UIColor.clear
@@ -75,11 +91,28 @@ class MICallEntryViewController: UIViewController, UITableViewDataSource, UITabl
         
         // call button
         self.callButton = self.view.addButton(imageName: "click", self, action: #selector(callPressed))
-        self.view.addSubview(callButton)
         callButton.snp.makeConstraints { make in
             make.centerX.equalTo(self.view)
             make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottomMargin).offset(-50)
         }
+    }
+    
+    @objc func namePressed() {
+        let alert = UIAlertController(title: "Display Name", message: "Your display name in the room.", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Confirm", style: .default) { [weak self]  _ in
+            guard let name = alert.textFields?.first?.text, !name.isEmpty else  {
+                return
+            }
+            self?.nameButton.setTitle(name, for: .normal)
+            MyName = name
+        }
+        alert.addAction(ok)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addTextField { textField in
+            textField.placeholder = "your name"
+            textField.text = MyName
+        }
+        self.present(alert, animated: true, completion: nil)
     }
     
     @objc func callPressed() {
@@ -141,7 +174,7 @@ extension MICallEntryViewController {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 30
+        return 40
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

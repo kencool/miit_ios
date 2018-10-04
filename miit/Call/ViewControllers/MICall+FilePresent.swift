@@ -10,14 +10,21 @@ import UIKit
 
 extension MICallViewController {
     
-    func presentImage(_ image: UIImage) {
-        presentFileView(ImagePresentView(image: image), displaySize: image.size)
+    func presentImage(_ image: UIImage, meta: FileMeta) {
+        presentFileView(ImagePresentView(image: image, meta: meta), displaySize: image.size)
     }
     
-    func presentVideo(_ url: URL) {
-        let v = VideoPresentView(url: url)
+    func presentVideo(_ url: URL, meta: FileMeta) {
+        let v = VideoPresentView(url: url, meta: meta)
         presentFileView(v, displaySize: v.videoView.resolution)
         v.videoView.play()
+    }
+    
+    func presentPDF(_ data: Data, meta: FileMeta) {
+        guard let v = PDFPresentView(data: data, meta: meta) else {
+            return
+        }
+        presentFileView(v, displaySize: self.view.size)
     }
     
     func presentFileView(_ view: FilePresentView, displaySize: CGSize) {
@@ -74,6 +81,7 @@ extension MICallViewController {
     }
     
     func shrinkFilePresent() {
+        filePresentView?.isShrunk = true
         filePresentView?.frame = filePresentShrinkFrame!
         filePresentView?.removeGestureRecognizers()
         
@@ -88,6 +96,7 @@ extension MICallViewController {
     }
     
     @objc func enlargeFilePresent() {
+        filePresentView?.isShrunk = false
         // back to full screen file presentation
         panGesture.isEnabled = false
         tapGesture.isEnabled = false

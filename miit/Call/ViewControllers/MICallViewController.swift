@@ -105,6 +105,7 @@ class MICallViewController: UIViewController, CallViewDelegate, CallToolBarDeleg
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         //self.presentImage(UIImage(named: "1.JPG")!) // for test
+        //self.presentPDF(try! Data(contentsOf: Bundle.main.url(forResource: "Sample", withExtension: "pdf")!), meta: ["filename":"Sample.pdf"])
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -272,12 +273,21 @@ extension MICallViewController {
         }
     }
     
-    func call(_ call: Call, didReceiveImage image: UIImage) {
-        presentImage(image)
+    func call(_ call: Call, didReceiveImage image: UIImage, meta: FileMeta) {
+        presentImage(image, meta: meta)
     }
     
-    func call(_ call: Call, didReceiveVideo fileURL: URL) {
-        presentVideo(fileURL)
+    func call(_ call: Call, didReceiveVideo fileURL: URL, meta: FileMeta) {
+        presentVideo(fileURL, meta: meta)
+    }
+    
+    func call(_ call: Call, didReceiveFile data: Data, meta: FileMeta, type: FileType) {
+        switch type {
+        case .pdf:
+            presentPDF(data, meta: meta)
+        default:
+            break
+        }
     }
 }
 
@@ -296,7 +306,14 @@ extension MICallViewController {
 
 // MARK: - Tool Bar Delegate
 
-extension MICallViewController {
+extension MICallViewController: UIDocumentPickerDelegate {
+    
+    func callToolBarDidSelectCloud(_ toolBar: CallToolBar) {
+        let picker = UIDocumentPickerViewController(documentTypes: Cloud.pickDocumentTypes, in: .open)
+        picker.delegate = self
+        picker.modalPresentationStyle = .fullScreen
+        self.present(picker, animated: true, completion: nil)
+    }
     
     func callToolBarDidSelectPhoto(_ toolBar: CallToolBar) {
         let picker = UIImagePickerController()
@@ -309,6 +326,7 @@ extension MICallViewController {
     
     func callToolBar(_ toolBar: CallToolBar, didSwitchVideo on: Bool) {
         call.client.setVideoEnabled(on)
+        callView.setPreviewMasked(on: !on)
     }
     
     func callToolBar(_ toolBar: CallToolBar, didSwitchAudio on: Bool) {
@@ -317,6 +335,14 @@ extension MICallViewController {
 }
 
 extension MICallViewController {
+    
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        guard controller.documentPickerMode == .open, let url = urls.first, url.startAccessingSecurityScopedResource() else {
+            return
+        }
+        defer { url.stopAccessingSecurityScopedResource() }
+        call.send(fileURL: url)
+    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         self.dismiss(animated: true, completion: nil)
