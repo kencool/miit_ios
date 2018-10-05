@@ -22,6 +22,7 @@ extension MICallViewController {
     
     func presentPDF(_ data: Data, meta: FileMeta) {
         guard let v = PDFPresentView(data: data, meta: meta) else {
+            Alert.show(title: "Open File Failed", message: "Oops! This file can't be opened.")
             return
         }
         presentFileView(v, displaySize: self.view.size)

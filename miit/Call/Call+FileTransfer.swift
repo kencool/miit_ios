@@ -118,17 +118,17 @@ class FileTransfer {
         return requestSend(data: data, pathExtension: "png")
     }
     
-    func requestSend(url: URL) -> FileMeta? {
+    func requestSend(url: URL, filename: String? = nil) -> FileMeta? {
         guard let data = try? Data(contentsOf: url) else {
             return nil
         }
-        return requestSend(data: data, pathExtension: url.pathExtension)
+        return requestSend(data: data, pathExtension: url.pathExtension, filename: filename)
     }
     
-    func requestSend(data: Data, pathExtension: String) -> FileMeta? {
+    func requestSend(data: Data, pathExtension: String, filename: String? = nil) -> FileMeta? {
         fileSent += 1
         let fileid = fileSent
-        let filename = dateFormatter.string(from: Date()).appendingPathExtension(pathExtension)!
+        let filename = filename ?? dateFormatter.string(from: Date()).appendingPathExtension(pathExtension)!
         let meta: FileMeta = [
             "fileid": fileid,
             "filename": filename,
@@ -279,12 +279,12 @@ extension Call {
         send(json: JSON(dict))
     }
     
-    func send(fileURL: URL) {
+    func send(fileURL: URL, filename: String? = nil) {
         guard let channel = client.fileDataChannel, channel.readyState == .open else {
             NSLog("file data channel is not opened")
             return
         }
-        guard let meta = fileTransfer.requestSend(url: fileURL) else {
+        guard let meta = fileTransfer.requestSend(url: fileURL, filename: filename) else {
             NSLog("can't open video file \(fileURL)")
             return
         }

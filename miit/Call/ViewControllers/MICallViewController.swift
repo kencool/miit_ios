@@ -341,7 +341,8 @@ extension MICallViewController {
             return
         }
         defer { url.stopAccessingSecurityScopedResource() }
-        call.send(fileURL: url)
+        call.send(fileURL: url, filename: url.lastPathComponent)
+        self.presentAlertNotice(title: "Send File", message: "Waiting for \(call.mitterName ?? "peer") accept.")
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
