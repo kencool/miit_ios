@@ -26,6 +26,7 @@ enum FileType: String {
     case png, jpg, jpeg
     case mp4, mov
     case pdf
+    case unknown
 
     static let images: [FileType] = [.png, .jpg, .jpeg]
     
@@ -44,7 +45,8 @@ enum FileType: String {
 }
 
 func isFileAcceptable(meta: FileMeta) -> Bool {
-    return FileType(meta: meta) != nil
+    return true //
+    FileType(meta: meta) != nil
 }
 
 // MARK: - File Transfer
@@ -243,7 +245,7 @@ class FileTransfer {
                 self?.delegate?.fileTransfer(self!, didFinishFile: meta)
             }
             receivingFiles[meta["fileid"] as! UInt8] = nil
-            return (meta, FileType(meta: meta)!, data, task.filePath)
+            return (meta, FileType(meta: meta) ?? .unknown, data, task.filePath)
         }
         return nil
     }
@@ -343,6 +345,5 @@ extension Call {
         } else {
             return (x.0, x.1, x.2, nil, nil)
         }
-        return nil
     }
 }

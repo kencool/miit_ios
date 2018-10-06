@@ -1,0 +1,43 @@
+/* 
+  Localizable.strings
+  miit
+
+  Created by Ken Sun on 2018/10/6.
+  Copyright © 2018年 Ken Sun. All rights reserved.
+*/
+"Connecting....." = "Connecting.....";
+"room_cache_title" = "Rooms you have been:";
+"Go miit !" = "Go miit !";
+"display_name" = "Display Name";
+"display_name_message" = "Your display name in the room.";
+"Confirm" = "Confirm";
+"Cancel" = "Cancel";
+"your name" = "your name";
+"Invalid Room" = "Invalid Room";
+"room_id_too_long" = "Room ID is too long. Maximum is 16 characters.";
+"open_room_failed" = "Open Room Failed";
+"Room ID" = "Room ID";
+
+"Disconnected" = "Disconnected";
+"unacceptable_file" = "Unacceptable File";
+"share_unsupported_file" = "Sorry, %@ wants to share an unsupported file.";
+"peer" = "peer";
+"share_file_request" = "%@ wants to share a file";
+"Send File" = "Send File";
+"wait_for_accept" = "Waiting for %@ to accept.";
+
+"open_file_failed" = "Open File Failed";
+"open_file_failed_message" = "Oops! This file can't be opened.";
+"Room ID:\n" = "Room ID:\n";
+"Participants:\n" = "Participants:\n";
+"Copy Room ID" = "Copy Room ID";
+"room_id_copied" = "Room ID is copied to pasteboard.";
+
+"File Saved" = "File Saved";
+"file_saved_album" = "File is saved to your album.";
+"save_to_icloud" = "Save File to iCloud";
+"save_to_icloud_message" = "Save this file to your iCloud. You can check it out in Files app.";
+"file_saved_icloud" = "File is saved to your iCloud.";
+"Save Failed" = "Save Failed";
+"video_incompatible_save" = "This video is incompatible to be saved.";
+"file_cannot_view" = "This file can't be viewed.\n You can still save it to iCloud.";

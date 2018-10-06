@@ -11,24 +11,28 @@ import UIKit
 extension MICallViewController {
     
     func presentImage(_ image: UIImage, meta: FileMeta) {
-        presentFileView(ImagePresentView(image: image, meta: meta), displaySize: image.size)
+        presentFileView(ImagePresentView(image: image, meta: meta))
     }
     
     func presentVideo(_ url: URL, meta: FileMeta) {
         let v = VideoPresentView(url: url, meta: meta)
-        presentFileView(v, displaySize: v.videoView.resolution)
+        presentFileView(v)
         v.videoView.play()
     }
     
     func presentPDF(_ data: Data, meta: FileMeta) {
         guard let v = PDFPresentView(data: data, meta: meta) else {
-            Alert.show(title: "Open File Failed", message: "Oops! This file can't be opened.")
+            Alert.show(title: "open_file_failed".localized(), message: "open_file_failed_message".localized())
             return
         }
-        presentFileView(v, displaySize: self.view.size)
+        presentFileView(v)
     }
     
-    func presentFileView(_ view: FilePresentView, displaySize: CGSize) {
+    func presentUnknownFile(_ data: Data, meta: FileMeta) {
+        presentFileView(CloudPresentView(data: data, meta: meta))
+    }
+    
+    func presentFileView(_ view: FilePresentView) {
         filePresentView?.removeFromSuperview()
         filePresentView = view
         filePresentView?.frame = self.view.bounds
@@ -42,6 +46,7 @@ extension MICallViewController {
         filePresentView?.addGestureRecognizer(pan)
         
         // calculate shrink frame and scale
+        let displaySize = view.displaySize
         let isVertical = displaySize.width < displaySize.height
         let width = isVertical ? displaySize.width * 120 / displaySize.height : 120
         let height = isVertical ? 120 : displaySize.height * 120 / displaySize.width

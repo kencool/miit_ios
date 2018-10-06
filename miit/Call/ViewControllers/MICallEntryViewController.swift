@@ -16,6 +16,8 @@ class MICallEntryViewController: UIViewController, UITableViewDataSource, UITabl
     private var nameButton: UIButton!
     
     private var callButton: UIButton!
+
+    private var cacheTitleLabel: UILabel!
     
     private var cacheTableView: UITableView!
     
@@ -23,13 +25,13 @@ class MICallEntryViewController: UIViewController, UITableViewDataSource, UITabl
         let label = UILabel()
         label.textColor = UIColor.white
         label.font = UIFont.systemFont(ofSize: 14)
-        label.text = "Connecting....."
+        label.text = "Connecting.....".localized()
         label.sizeToFit()
         label.isHidden = true
         self.view.addSubview(label)
         label.snp.makeConstraints{ make in
-            make.centerX.equalTo(callButton)
-            make.bottom.equalTo(callButton.snp.top).offset(-8)
+            make.center.equalTo(callButton)
+            //make.bottom.equalTo(callButton.snp.top).offset(-8)
         }
         return label
     }()
@@ -56,9 +58,10 @@ class MICallEntryViewController: UIViewController, UITableViewDataSource, UITabl
         self.entryText = MICallEntryTextField(frame: CGRect.zero)
         self.view.addSubview(entryText)
         entryText.snp.makeConstraints { make in
-            make.width.equalTo(Screen.width * 2/3)
+            make.leftMargin.equalTo(30)
+            make.rightMargin.equalTo(-30)
             make.height.equalTo(40)
-            make.center.equalTo(self.view)
+            make.centerY.equalTo(self.view)
         }
         
         // name button
@@ -74,6 +77,18 @@ class MICallEntryViewController: UIViewController, UITableViewDataSource, UITabl
             make.top.equalTo(entryText.snp.bottom).offset(8)
             make.left.equalTo(entryText).offset(4)
         }
+        // cache title
+        cacheTitleLabel = UILabel()
+        cacheTitleLabel.text = "room_cache_title".localized()
+        cacheTitleLabel.textColor = UIColor.lightGray
+        cacheTitleLabel.font = UIFont.systemFont(ofSize: 16)
+        cacheTitleLabel.isHidden = CallHistory.latestRoomIDs.count == 0
+        cacheTitleLabel.sizeToFit()
+        self.view.addSubview(cacheTitleLabel)
+        cacheTitleLabel.snp.makeConstraints { make in
+            make.leftMargin.equalTo(45)
+            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.topMargin).offset(20)
+        }
         
         // joined room cache
         cacheTableView = UITableView(frame: CGRect.zero, style: .plain)
@@ -85,12 +100,13 @@ class MICallEntryViewController: UIViewController, UITableViewDataSource, UITabl
         self.view.addSubview(cacheTableView)
         cacheTableView.snp.makeConstraints { make in
             make.left.right.equalTo(entryText)
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin).offset(8)
+            make.top.equalTo(cacheTitleLabel.snp.bottom).offset(8)
             make.bottom.equalTo(entryText.snp.top).offset(-20)
         }
         
         // call button
-        self.callButton = self.view.addButton(imageName: "click", self, action: #selector(callPressed))
+        callButton = self.view.addButton(title: "Go miit !".localized(), self, action: #selector(callPressed))
+        callButton.setTitleColor(UIColor.white, for: .normal)
         callButton.snp.makeConstraints { make in
             make.centerX.equalTo(self.view)
             make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottomMargin).offset(-50)
@@ -98,7 +114,7 @@ class MICallEntryViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     @objc func namePressed() {
-        let alert = UIAlertController(title: "Display Name", message: "Your display name in the room.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "display_name".localized(), message: "display_name_message".localized(), preferredStyle: .alert)
         let ok = UIAlertAction(title: "Confirm", style: .default) { [weak self]  _ in
             guard let name = alert.textFields?.first?.text, !name.isEmpty else  {
                 return
@@ -107,28 +123,38 @@ class MICallEntryViewController: UIViewController, UITableViewDataSource, UITabl
             MyName = name
         }
         alert.addAction(ok)
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: nil))
         alert.addTextField { textField in
-            textField.placeholder = "your name"
+            textField.placeholder = "your name".localized()
             textField.text = MyName
         }
         self.present(alert, animated: true, completion: nil)
     }
     
     @objc func callPressed() {
-        let roomID = entryText.text
+        var roomID = entryText.text
+        if roomID.isEmpty {
+            // randomize room ID instead of blocking user
+            roomID = String(abs((UIDevice.current.name.hashValue + Int(arc4random_uniform(10000))) % 10000))
+        }
+        /*
         guard !roomID.isEmpty else {
-            Alert.show(title: "Invalid Room", message: "Room ID can't be empty.")
+            Alert.show(title: "Invalid Room", message: "Room ID can't be empty.") { [weak self] _ in
+                self?.entryText.entryText.becomeFirstResponder()
+            }
+            
             return
         }
+ */
         guard roomID.count <= 16 else {
-            Alert.show(title: "Invalid Room", message: "Room ID is too long. Maximum is 16 characters.")
+            Alert.show(title: "Invalid Room".localized(), message: "room_id_too_long".localized())
             return
         }
         guard connectingLabel.isHidden else {
             return
         }
         connectingLabel.isHidden = false
+        callButton.isHidden = true
         
         let call = Call(roomID: roomID)
         call.open { [weak self] error in
@@ -139,11 +165,15 @@ class MICallEntryViewController: UIViewController, UITableViewDataSource, UITabl
                     CallHistory.add(roomId: roomID)
                     self?.cacheTableView.reloadData()
                     self?.cacheTableView.contentOffset = CGPoint.zero
+                    if self?.cacheTitleLabel.isHidden == true {
+                        self?.cacheTitleLabel.isHidden = false
+                    }
                 }
             } else {
-                self?.presentAlertNotice(title: "Open Room Failed", message: error!.localizedDescription)
+                self?.presentAlertNotice(title: "open_room_failed".localized(), message: error!.localizedDescription)
             }
             self?.connectingLabel.isHidden = true
+            self?.callButton.isHidden = false
         }
     }
 
@@ -202,8 +232,8 @@ class MICallEntryTextField: UIView, UITextFieldDelegate {
         self.entryText.keyboardType = .asciiCapable
         self.entryText.textColor = UIColor.white
         self.entryText.returnKeyType = .done
-        self.entryText.attributedPlaceholder = NSAttributedString(string: "Room ID", attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightGray,
-                                                                                                  NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14)])
+        self.entryText.attributedPlaceholder = NSAttributedString(string: "Room ID".localized(), attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightGray,
+                                                                                                              NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14)])
         self.addSubview(entryText)
         entryText.snp.makeConstraints { (make) in
             make.topMargin.equalTo(0)

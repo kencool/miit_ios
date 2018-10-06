@@ -17,6 +17,10 @@ class ImagePresentView: FilePresentView {
     
     var isImageVertical: Bool { return image.size.width < image.size.height }
     
+    override var displaySize: CGSize {
+        return image.size
+    }
+    
     init(image: UIImage, meta: FileMeta) {
         self.image = image
         super.init(meta: meta)
@@ -41,7 +45,7 @@ class ImagePresentView: FilePresentView {
     
     @objc func didSaveImageTo(image: UIImage?, error: Error?, context: UnsafeMutableRawPointer?) {
         guard error == nil else {
-            Alert.show(title: "Save Failed", message: error!.localizedDescription)
+            Alert.show(title: "Save Failed".localized(), message: error!.localizedDescription)
             return
         }
         didFinishSaveFile(success: true)

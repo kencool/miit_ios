@@ -16,7 +16,6 @@
 		BE1A56AB215FD9C100BEC091 /* VideoPresentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1A56AA215FD9C100BEC091 /* VideoPresentView.swift */; };
 		BE45932B216159D100955C17 /* FilePresentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE45932A216159D100955C17 /* FilePresentView.swift */; };
 		BE45933E2162459A00955C17 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE45933D2162459A00955C17 /* Alert.swift */; };
-		BE4593512163DCCF00955C17 /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4593502163DCCF00955C17 /* PDFViewController.swift */; };
 		BE459353216402FF00955C17 /* PDFPresentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE459352216402FF00955C17 /* PDFPresentView.swift */; };
 		BE4593602165B47D00955C17 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE45935F2165B47D00955C17 /* Storage.swift */; };
 		BE4A6F94214962A200DC9046 /* CallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4A6F93214962A200DC9046 /* CallView.swift */; };
@@ -46,6 +45,8 @@
 		BE96019B21516FC000DEFBB3 /* Call+FileTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE96019A21516FC000DEFBB3 /* Call+FileTransfer.swift */; };
 		BE96019D2152A2F500DEFBB3 /* DataExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE96019C2152A2F500DEFBB3 /* DataExt.swift */; };
 		BE96019F2153F9DD00DEFBB3 /* MICall+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE96019E2153F9DD00DEFBB3 /* MICall+Keyboard.swift */; };
+		BED862762167E28400AB560D /* CloudPresentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED862752167E28400AB560D /* CloudPresentView.swift */; };
+		BED8628321690F9A00AB560D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BED8628121690F9A00AB560D /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,7 +91,6 @@
 		BE1A56AA215FD9C100BEC091 /* VideoPresentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPresentView.swift; sourceTree = "<group>"; };
 		BE45932A216159D100955C17 /* FilePresentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePresentView.swift; sourceTree = "<group>"; };
 		BE45933D2162459A00955C17 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
-		BE4593502163DCCF00955C17 /* PDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
 		BE459352216402FF00955C17 /* PDFPresentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFPresentView.swift; sourceTree = "<group>"; };
 		BE45935E2165B08F00955C17 /* miit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = miit.entitlements; sourceTree = "<group>"; };
 		BE45935F2165B47D00955C17 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
@@ -128,6 +128,8 @@
 		BE96019A21516FC000DEFBB3 /* Call+FileTransfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Call+FileTransfer.swift"; sourceTree = "<group>"; };
 		BE96019C2152A2F500DEFBB3 /* DataExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExt.swift; sourceTree = "<group>"; };
 		BE96019E2153F9DD00DEFBB3 /* MICall+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MICall+Keyboard.swift"; sourceTree = "<group>"; };
+		BED862752167E28400AB560D /* CloudPresentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudPresentView.swift; sourceTree = "<group>"; };
+		BED8628221690F9A00AB560D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D74ADBB458DCF843BB22F4A9 /* Pods-miitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-miitUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-miitUITests/Pods-miitUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E05EA6A412DEE46BEC44DABF /* Pods-miitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-miitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-miitTests/Pods-miitTests.release.xcconfig"; sourceTree = "<group>"; };
 		F4AE2B9648B635F78E6B9F66 /* Pods-miit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-miit.release.xcconfig"; path = "Pods/Target Support Files/Pods-miit/Pods-miit.release.xcconfig"; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				BE84576B2157D8A1001C557D /* ImagePresentView.swift */,
 				BE1A56AA215FD9C100BEC091 /* VideoPresentView.swift */,
 				BE459352216402FF00955C17 /* PDFPresentView.swift */,
+				BED862752167E28400AB560D /* CloudPresentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -218,14 +221,6 @@
 				BE94C1A22146EC0F00A8CD81 /* Api.swift */,
 			);
 			path = Api;
-			sourceTree = "<group>";
-		};
-		BE45934F2163DC6000955C17 /* PDFViewer */ = {
-			isa = PBXGroup;
-			children = (
-				BE4593502163DCCF00955C17 /* PDFViewController.swift */,
-			);
-			path = PDFViewer;
 			sourceTree = "<group>";
 		};
 		BE94C1602146352000A8CD81 = {
@@ -266,6 +261,7 @@
 				BE94C1752146352100A8CD81 /* LaunchScreen.storyboard */,
 				BE94C1782146352100A8CD81 /* Info.plist */,
 				BE94C19A214636A900A8CD81 /* miit-Bridging-Header.h */,
+				BED8628121690F9A00AB560D /* Localizable.strings */,
 			);
 			path = miit;
 			sourceTree = "<group>";
@@ -294,7 +290,6 @@
 				BE1A5694215D61DA00BEC091 /* Api */,
 				BE1A5692215D612C00BEC091 /* ViewControllers */,
 				BE1A5693215D618D00BEC091 /* Views */,
-				BE45934F2163DC6000955C17 /* PDFViewer */,
 				BE94C1A42147A3B200A8CD81 /* Call.swift */,
 				BE96019A21516FC000DEFBB3 /* Call+FileTransfer.swift */,
 				BE94C1AD2147C10200A8CD81 /* RTCClient.swift */,
@@ -410,7 +405,6 @@
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
 			);
 			mainGroup = BE94C1602146352000A8CD81;
@@ -431,6 +425,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE94C1772146352100A8CD81 /* LaunchScreen.storyboard in Resources */,
+				BED8628321690F9A00AB560D /* Localizable.strings in Resources */,
 				BE94C1742146352100A8CD81 /* Assets.xcassets in Resources */,
 				BE94C1722146352000A8CD81 /* Main.storyboard in Resources */,
 			);
@@ -550,6 +545,7 @@
 				BE96019F2153F9DD00DEFBB3 /* MICall+Keyboard.swift in Sources */,
 				BE94C1AE2147C10200A8CD81 /* RTCClient.swift in Sources */,
 				BE1A568C215C016A00BEC091 /* ChatView.swift in Sources */,
+				BED862762167E28400AB560D /* CloudPresentView.swift in Sources */,
 				BE94C1A52147A3B200A8CD81 /* Call.swift in Sources */,
 				BE845762215624F6001C557D /* UIImageExt.swift in Sources */,
 				BE45933E2162459A00955C17 /* Alert.swift in Sources */,
@@ -566,7 +562,6 @@
 				BE94C1A82147A9BB00A8CD81 /* UIViewControllerExt.swift in Sources */,
 				BE4A6FA8214AEBF800DC9046 /* Message.swift in Sources */,
 				BE4593602165B47D00955C17 /* Storage.swift in Sources */,
-				BE4593512163DCCF00955C17 /* PDFViewController.swift in Sources */,
 				BE960190214EE0C900DEFBB3 /* CallToolBar.swift in Sources */,
 				BE1A56AB215FD9C100BEC091 /* VideoPresentView.swift in Sources */,
 				BE84576C2157D8A2001C557D /* ImagePresentView.swift in Sources */,
@@ -628,6 +623,14 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		BED8628121690F9A00AB560D /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BED8628221690F9A00AB560D /* Base */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -635,6 +638,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -695,6 +699,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -769,7 +774,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "miit/miit-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -798,7 +803,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "miit/miit-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

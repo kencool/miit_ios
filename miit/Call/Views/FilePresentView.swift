@@ -12,6 +12,8 @@ class FilePresentView: UIView {
 
     let fileMeta: FileMeta
     
+    var displaySize: CGSize { return self.size }
+    
     var isFloating: Bool = false {
         didSet {
             // no background while floating, which looks clearer
@@ -68,6 +70,14 @@ class FilePresentView: UIView {
         // do nothing
     }
     
+    @objc private func didPressSaveFile() {
+        saveFile()
+    }
+    
+    func panGestureShouldBegin(_ gr: UIGestureRecognizer) -> Bool {
+        return true
+    }
+    
     func saveFile() {
         // do nothing
     }
@@ -75,15 +85,18 @@ class FilePresentView: UIView {
     func didFinishSaveFile(success: Bool, message: String? = nil) {
         isSaved = success
         if success {
-            Alert.show(title: "File Saved", message: message ?? "File is saved to your album.")
+            Alert.show(title: "File Saved".localized(), message: message ?? "file_saved_album".localized())
         }
     }
     
-    @objc private func didPressSaveFile() {
-        saveFile()
-    }
-    
-    func panGestureShouldBegin(_ gr: UIGestureRecognizer) -> Bool {
-        return true
+    func saveToCloud(data: Data) {
+        Alert.show(title: "save_to_icloud".localized(), message: "save_to_icloud_message".localized(), yes: { [weak self] _ in
+            guard let wSelf = self else {
+                return
+            }
+            if Storage.iCloud.save(data: data, filename: getFilename(meta: wSelf.fileMeta)) {
+                wSelf.didFinishSaveFile(success: true, message: "file_saved_icloud".localized())
+            }
+        })
     }
 }

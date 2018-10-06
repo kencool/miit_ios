@@ -14,6 +14,10 @@ class VideoPresentView: FilePresentView {
     
     private(set) var videoView: VideoView!
     
+    override var displaySize: CGSize {
+        return videoView.resolution
+    }
+    
     init(url: URL, meta: FileMeta) {
         self.url = url
         super.init(meta: meta)
@@ -35,7 +39,7 @@ class VideoPresentView: FilePresentView {
     
     override func saveFile() {
         guard UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(url.relativePath) else {
-            Alert.show(title: "Save Failed", message: "This video is incompatible to be saved.")
+            Alert.show(title: "Save Failed".localized(), message: "video_incompatible_save".localized())
             return
         }
         UISaveVideoAtPathToSavedPhotosAlbum(url.relativePath, self, #selector(didSaveVideoTo(path:error:context:)), nil)
@@ -43,7 +47,7 @@ class VideoPresentView: FilePresentView {
     
     @objc func didSaveVideoTo(path: String?, error: Error?, context: UnsafeMutableRawPointer?) {
         guard error == nil else {
-            Alert.show(title: "Save Failed", message: error!.localizedDescription)
+            Alert.show(title: "Save Failed".localized(), message: error!.localizedDescription)
             return
         }
         didFinishSaveFile(success: true)

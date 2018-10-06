@@ -11,8 +11,6 @@ import PDFKit
 
 class PDFPresentView: FilePresentView {
 
-    //override var canSave: Bool { return false }
-
     override var isFloating: Bool {
         didSet {
             thumbnailView.isHidden = isFloating || isShrunk
@@ -104,13 +102,6 @@ class PDFPresentView: FilePresentView {
     }
     
     override func saveFile() {
-        Alert.show(title: "Save File to iCloud", message: "Save this file to your iCloud. You can check it out in Files app.", yes: { [weak self] _ in
-            guard let wSelf = self else {
-                return
-            }
-            if Storage.iCloud.save(data: wSelf.rawData, filename: getFilename(meta: wSelf.fileMeta)) {
-                wSelf.didFinishSaveFile(success: true, message: "File is saved to your iCloud.")
-            }
-        })
+        saveToCloud(data: rawData)
     }
 }

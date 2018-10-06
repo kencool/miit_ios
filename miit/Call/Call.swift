@@ -31,7 +31,7 @@ protocol CallMessageDelegate: class {
     
     func call(_ call: Call, didReceiveVideo fileURL: URL, meta: FileMeta)
     
-    func call(_ call: Call, didReceiveFile data: Data, meta: FileMeta, type: FileType)
+    func call(_ call: Call, didReceiveFile data: Data, meta: FileMeta, type: FileType)    
 }
 
 class Call: NSObject, RTCClientDelegate, RTCDataChannelDelegate {

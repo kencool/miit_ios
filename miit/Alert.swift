@@ -60,9 +60,9 @@ private class AlertBacked: UIViewController {
 
 extension Alert {
     
-    class func show(title: String, message: String) {
+    class func show(title: String, message: String, ok: ((UIAlertAction) -> Void)? = nil) {
         let alert = Alert(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "ok", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "ok", style: .cancel, handler: ok))
         alert.show()
     }
     
