@@ -209,7 +209,7 @@ extension MICallViewController {
     func callView(_ callView: CallView, didStop error: Error?) {
         if error != nil {
             self.dismiss(animated: true, completion: nil)
-            self.presentingViewController?.presentAlertNotice(title: "Disconnected".localized(), message: error!.localizedDescription)
+            Alert.showError(title: "Disconnected".localized(), message: error!.localizedDescription)
         }
     }
 }
@@ -249,12 +249,12 @@ extension MICallViewController {
             }
             
             guard isFileAcceptable(meta: meta) else {
-                self.presentAlertNotice(title: "unacceptable_file".localized(),
-                                        message: String.localizedStringWithFormat("share_unsupported_file", call.mitterName ?? "peer"))
+                Alert.topFloatError(title: "unacceptable_file".localized(),
+                                        message: String.localizedStringWithFormat("share_unsupported_file".localized(), call.mitterName ?? "peer"))
                 call.decline(meta: meta)
                 return
             }
-            self.presentAlertYesOrNo(title: String.localizedStringWithFormat("share_file_request", call.mitterName ?? "Peer"), message: getFilename(meta: meta), yes: { [weak self] _ in
+            Alert.show(title: String.localizedStringWithFormat("share_file_request".localized(), call.mitterName ?? "Peer"), message: getFilename(meta: meta), yes: { [weak self] _ in
                 self?.progressRing.isHidden = false
                 self?.call.fileTransfer.delegate = self
                 self?.call.accept(meta: meta)
@@ -344,8 +344,8 @@ extension MICallViewController {
         }
         defer { url.stopAccessingSecurityScopedResource() }
         call.send(fileURL: url, filename: url.lastPathComponent)
-        self.presentAlertNotice(title: "Send File".localized(),
-                                message: String.localizedStringWithFormat("wait_for_accept", call.mitterName ?? "peer"))
+        Alert.topFloat(title: "Send File".localized(),
+                                message: String.localizedStringWithFormat("wait_for_accept".localized(), call.mitterName ?? "peer"))
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -362,7 +362,7 @@ extension MICallViewController {
         default:
             return
         }
-        self.presentAlertNotice(title: "Send File".localized(),
-                                message: String.localizedStringWithFormat("wait_for_accept", call.mitterName ?? "peer"))
+        Alert.topFloat(title: "Send File".localized(),
+                                message: String.localizedStringWithFormat("wait_for_accept".localized(), call.mitterName ?? "peer"))
     }
 }

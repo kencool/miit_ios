@@ -47,6 +47,7 @@
 		BE96019F2153F9DD00DEFBB3 /* MICall+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE96019E2153F9DD00DEFBB3 /* MICall+Keyboard.swift */; };
 		BED862762167E28400AB560D /* CloudPresentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED862752167E28400AB560D /* CloudPresentView.swift */; };
 		BED8628321690F9A00AB560D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BED8628121690F9A00AB560D /* Localizable.strings */; };
+		BED862882169308200AB560D /* UIColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED862872169308200AB560D /* UIColorExt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +131,7 @@
 		BE96019E2153F9DD00DEFBB3 /* MICall+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MICall+Keyboard.swift"; sourceTree = "<group>"; };
 		BED862752167E28400AB560D /* CloudPresentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudPresentView.swift; sourceTree = "<group>"; };
 		BED8628221690F9A00AB560D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BED862872169308200AB560D /* UIColorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExt.swift; sourceTree = "<group>"; };
 		D74ADBB458DCF843BB22F4A9 /* Pods-miitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-miitUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-miitUITests/Pods-miitUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E05EA6A412DEE46BEC44DABF /* Pods-miitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-miitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-miitTests/Pods-miitTests.release.xcconfig"; sourceTree = "<group>"; };
 		F4AE2B9648B635F78E6B9F66 /* Pods-miit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-miit.release.xcconfig"; path = "Pods/Target Support Files/Pods-miit/Pods-miit.release.xcconfig"; sourceTree = "<group>"; };
@@ -307,6 +309,7 @@
 				BE4A6F952149908E00DC9046 /* CoreMediaExt.swift */,
 				BE96019C2152A2F500DEFBB3 /* DataExt.swift */,
 				BE845761215624F6001C557D /* UIImageExt.swift */,
+				BED862872169308200AB560D /* UIColorExt.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -476,7 +479,9 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AsyncSwift/Async.framework",
 				"${PODS_ROOT}/GoogleWebRTC/Frameworks/frameworks/WebRTC.framework",
+				"${BUILT_PRODUCTS_DIR}/QuickLayout/QuickLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftEntryKit/SwiftEntryKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwifterSwift/SwifterSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/UICircularProgressRing/UICircularProgressRing.framework",
@@ -487,7 +492,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Async.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WebRTC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QuickLayout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftEntryKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwifterSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICircularProgressRing.framework",
@@ -566,6 +573,7 @@
 				BE1A56AB215FD9C100BEC091 /* VideoPresentView.swift in Sources */,
 				BE84576C2157D8A2001C557D /* ImagePresentView.swift in Sources */,
 				BE96019D2152A2F500DEFBB3 /* DataExt.swift in Sources */,
+				BED862882169308200AB560D /* UIColorExt.swift in Sources */,
 				BE84576821579F3A001C557D /* MICall+FilePresent.swift in Sources */,
 				BE1A5680215A872000BEC091 /* MICall+RoomInfo.swift in Sources */,
 				BE4A6FBA214C548600DC9046 /* MessageCell.swift in Sources */,
@@ -774,7 +782,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "miit/miit-Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -803,7 +811,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "miit/miit-Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

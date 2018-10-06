@@ -45,7 +45,7 @@ class ImagePresentView: FilePresentView {
     
     @objc func didSaveImageTo(image: UIImage?, error: Error?, context: UnsafeMutableRawPointer?) {
         guard error == nil else {
-            Alert.show(title: "Save Failed".localized(), message: error!.localizedDescription)
+            Alert.showError(title: "Save Failed".localized(), message: error!.localizedDescription)
             return
         }
         didFinishSaveFile(success: true)

@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import SwiftEntryKit
 
 class MICallEntryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -44,6 +45,11 @@ class MICallEntryViewController: UIViewController, UITableViewDataSource, UITabl
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         tap.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tap)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        showWelcomeIfNeeded()
     }
 
     override func didReceiveMemoryWarning() {
@@ -147,8 +153,8 @@ class MICallEntryViewController: UIViewController, UITableViewDataSource, UITabl
         }
  */
         guard roomID.count <= 16 else {
-            Alert.show(title: "Invalid Room".localized(), message: "room_id_too_long".localized())
-            return
+            Alert.showError(title: "Invalid Room".localized(), message: "room_id_too_long".localized())
+           return
         }
         guard connectingLabel.isHidden else {
             return
@@ -170,7 +176,7 @@ class MICallEntryViewController: UIViewController, UITableViewDataSource, UITabl
                     }
                 }
             } else {
-                self?.presentAlertNotice(title: "open_room_failed".localized(), message: error!.localizedDescription)
+                Alert.showError(title: "open_room_failed".localized(), message: error!.localizedDescription)
             }
             self?.connectingLabel.isHidden = true
             self?.callButton.isHidden = false
@@ -253,5 +259,45 @@ class MICallEntryTextField: UIView, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+}
+
+// MARK: - Welcome
+
+extension MICallEntryViewController {
+    
+    func showWelcomeIfNeeded() {
+        guard UserDefaults.standard.bool(forKey: "welcome") == false else {
+            return
+        }
+        UserDefaults.standard.set(true, forKey: "welcome")
+        // attributes
+        var attributes = EKAttributes.centerFloat
+        attributes.hapticFeedbackType = .success
+        attributes.displayDuration = .infinity
+        attributes.entryBackground = .gradient(gradient: .init(colors: [MIColor.royalBlue, MIColor.seaGreen], startPoint: .zero, endPoint: CGPoint(x: 1, y: 1)))
+        attributes.screenBackground = .color(color: UIColor(white: 50.0/255.0, alpha: 0.3))
+        attributes.shadow = .active(with: .init(color: .black, opacity: 0.3, radius: 8))
+        attributes.screenInteraction = .dismiss
+        attributes.entryInteraction = .absorbTouches
+        attributes.scroll = .enabled(swipeable: true, pullbackAnimation: .jolt)
+        attributes.roundCorners = .all(radius: 8)
+        attributes.entranceAnimation = .init(translate: .init(duration: 0.7, spring: .init(damping: 0.7, initialVelocity: 0)),
+                                             scale: .init(from: 0.7, to: 1, duration: 0.4, spring: .init(damping: 1, initialVelocity: 0)))
+        attributes.exitAnimation = .init(translate: .init(duration: 0.2))
+        attributes.popBehavior = .animated(animation: .init(translate: .init(duration: 0.35)))
+        attributes.positionConstraints.size = .init(width: .offset(value: 20), height: .intrinsic)
+        attributes.positionConstraints.maxSize = .init(width: .constant(value: UIScreen.main.bounds.width), height: .intrinsic)
+        // popup content
+        let title = EKProperty.LabelContent(text: "welcome".localized(), style: EKProperty.LabelStyle(font: UIFont.systemFont(ofSize: 24), color: UIColor.white, alignment: .center))
+        let description = EKProperty.LabelContent(text: "welcome_message".localized(), style: EKProperty.LabelStyle(font: UIFont.systemFont(ofSize: 16), color: UIColor.lightText, alignment: .center))
+        let button = EKProperty.ButtonContent(label: .init(text: "Let's Go!", style: .init(font: UIFont.systemFont(ofSize: 16), color: MIColor.gray)), backgroundColor: UIColor.white, highlightedBackgroundColor: MIColor.gray.withAlphaComponent(0.05))
+        // message view
+        let message = EKPopUpMessage(themeImage: nil, title: title, description: description, button: button) {
+            SwiftEntryKit.dismiss()
+        }
+        let view = EKPopUpMessageView(with: message)
+        // display
+        SwiftEntryKit.display(entry: view, using: attributes)
     }
 }

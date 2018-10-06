@@ -99,6 +99,6 @@ class RoomInfoView: UITextView {
     
     @objc func copyRomoId() {
         UIPasteboard.general.string = roomId
-        Alert.show(title: "Copy Room ID".localized(), message: "room_id_copied".localized())
+        Alert.topFloat(title: "Copy Room ID".localized(), message: "room_id_copied".localized())
     }
 }

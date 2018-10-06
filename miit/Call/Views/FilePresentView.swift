@@ -85,8 +85,8 @@ class FilePresentView: UIView {
     func didFinishSaveFile(success: Bool, message: String? = nil) {
         isSaved = success
         if success {
-            Alert.show(title: "File Saved".localized(), message: message ?? "file_saved_album".localized())
-        }
+            Alert.topFloat(title: "File Saved".localized(), message: message ?? "file_saved_album".localized())
+       }
     }
     
     func saveToCloud(data: Data) {

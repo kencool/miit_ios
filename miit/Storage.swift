@@ -34,14 +34,14 @@ class Cloud {
     
     func save(data: Data, filename: String) -> Bool {
         guard let dirUrl = containerUrl else {
-            Alert.show(title: "Save Failed", message: "iCloud is not connected.")
+            Alert.showError(title: "Save Failed", message: "iCloud is not connected.")
             return false
         }
         do {
             try data.write(to: dirUrl.appendingPathComponent(filename), options: [.atomic])
             return true
         } catch {
-            Alert.show(title: "Save Failed", message: error.localizedDescription)
+            Alert.showError(title: "Save Failed", message: error.localizedDescription)
         }
         return false
     }

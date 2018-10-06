@@ -5,6 +5,9 @@
   Created by Ken Sun on 2018/10/6.
   Copyright © 2018年 Ken Sun. All rights reserved.
 */
+"welcome" = "Welcome to miit!";
+"welcome_message" = "You can do video chat, messaging and sharing files with others. All you need is just an arbitrary room ID.";
+
 "Connecting....." = "Connecting.....";
 "room_cache_title" = "Rooms you have been:";
 "Go miit !" = "Go miit !";

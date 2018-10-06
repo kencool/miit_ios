@@ -13,6 +13,7 @@ target 'miit' do
   pod 'UICircularProgressRing'
   pod 'SwifterSwift'
   pod 'ZoomImageView'
+  pod 'SwiftEntryKit', '0.7.2'
 
   target 'miitTests' do
     inherit! :search_paths
