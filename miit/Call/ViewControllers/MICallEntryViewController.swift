@@ -121,7 +121,7 @@ class MICallEntryViewController: UIViewController, UITableViewDataSource, UITabl
     
     @objc func namePressed() {
         let alert = UIAlertController(title: "display_name".localized(), message: "display_name_message".localized(), preferredStyle: .alert)
-        let ok = UIAlertAction(title: "Confirm", style: .default) { [weak self]  _ in
+        let ok = UIAlertAction(title: "Confirm".localized(), style: .default) { [weak self]  _ in
             guard let name = alert.textFields?.first?.text, !name.isEmpty else  {
                 return
             }
@@ -291,7 +291,7 @@ extension MICallEntryViewController {
         // popup content
         let title = EKProperty.LabelContent(text: "welcome".localized(), style: EKProperty.LabelStyle(font: UIFont.systemFont(ofSize: 24), color: UIColor.white, alignment: .center))
         let description = EKProperty.LabelContent(text: "welcome_message".localized(), style: EKProperty.LabelStyle(font: UIFont.systemFont(ofSize: 16), color: UIColor.lightText, alignment: .center))
-        let button = EKProperty.ButtonContent(label: .init(text: "Let's Go!", style: .init(font: UIFont.systemFont(ofSize: 16), color: MIColor.gray)), backgroundColor: UIColor.white, highlightedBackgroundColor: MIColor.gray.withAlphaComponent(0.05))
+        let button = EKProperty.ButtonContent(label: .init(text: "welcome_go".localized(), style: .init(font: UIFont.systemFont(ofSize: 16), color: MIColor.gray)), backgroundColor: UIColor.white, highlightedBackgroundColor: MIColor.gray.withAlphaComponent(0.05))
         // message view
         let message = EKPopUpMessage(themeImage: nil, title: title, description: description, button: button) {
             SwiftEntryKit.dismiss()

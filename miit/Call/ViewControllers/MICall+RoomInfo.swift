@@ -92,13 +92,15 @@ class RoomInfoView: UITextView {
         self.attributedText = string
         
         sizeToFit()
-        
+        if frame.width < 100 {
+            frame.size.width = 100
+        }
         copyButton.frame = CGRect(x: self.width - 28, y: 4, width: 24, height: 24)
         bringSubview(toFront: copyButton)
     }
     
     @objc func copyRomoId() {
         UIPasteboard.general.string = roomId
-        Alert.topFloat(title: "Copy Room ID".localized(), message: "room_id_copied".localized())
+        Alert.topFloat(title: "copy_room_id".localized(), message: "room_id_copied".localized())
     }
 }

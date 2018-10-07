@@ -5,3 +5,49 @@
   Created by Ken Sun on 2018/10/6.
   Copyright © 2018年 Ken Sun. All rights reserved.
 */
+"welcome" = "歡迎來到 miit！";
+"welcome_message" = "只需要一個任意的房間ID，便可立即和對方進行視訊、文字訊息和傳送檔案！";
+"welcome_go" = "開始吧！";
+
+"Connecting....." = "連線中.....";
+"room_cache_title" = "你去過的房間：";
+"Go miit !" = "Go miit !";
+"display_name" = "你的名稱";
+"display_name_message" = "你在房間中顯示的名稱";
+"Confirm" = "確定";
+"Cancel" = "取消";
+"your name" = "名稱";
+"Invalid Room" = "錯誤的房間";
+"room_id_too_long" = "房間ID過長，不可多於16個字元";
+"got_it" = "了解！";
+"open_room_failed" = "進入房間失敗";
+"Room ID" = "房間ID";
+
+"no_call_title" = "通話未建立";
+"no_peer_share_file" = "沒有對象能分享檔案，快邀請對方進入房間！";
+
+"Disconnected" = "連線中斷";
+"unacceptable_file" = "檔案不支援";
+"share_unsupported_file" = "%@ 想傳送一個不支援檢視的檔案";
+"peer" = "對方";
+"Peer" = "對方";
+"share_file_request" = "%@ 想要和你分享一個檔案";
+"Send File" = "傳送檔案";
+"wait_for_accept" = "等待 %@ 接受";
+
+"open_file_failed" = "開啟檔案失敗";
+"open_file_failed_message" = "GG! 無法開啟這個檔案";
+"Room ID:\n" = "房間 ID:\n";
+"Participants:\n" = "參與者:\n";
+"copy_room_id" = "複製ID";
+"room_id_copied" = "房間ID已複製";
+
+"File Saved" = "檔案已儲存";
+"file_saved_album" = "檔案已儲存進你的相簿";
+"save_to_icloud" = "存檔至 iCloud";
+"save_to_icloud_message" = "將檔案儲存至 iCloud，你可以前往\"檔案\"程式檢視";
+"file_saved_icloud" = "檔案已儲存至 iCloud.";
+"Save Failed" = "存檔失敗";
+"video_incompatible_save" = "影片格式不支援";
+"file_cannot_view" = "無法檢視該檔案，你可以將它儲存至 iCloud 檢視";
+

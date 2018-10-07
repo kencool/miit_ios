@@ -132,6 +132,12 @@
 		BED862752167E28400AB560D /* CloudPresentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudPresentView.swift; sourceTree = "<group>"; };
 		BED8628221690F9A00AB560D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BED862872169308200AB560D /* UIColorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExt.swift; sourceTree = "<group>"; };
+		BED8628F2169D5AE00AB560D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		BED862902169D5AF00AB560D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		BED862912169D5AF00AB560D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BED862922169D5CF00AB560D /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
+		BED862932169D5CF00AB560D /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		BED862942169D5CF00AB560D /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D74ADBB458DCF843BB22F4A9 /* Pods-miitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-miitUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-miitUITests/Pods-miitUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E05EA6A412DEE46BEC44DABF /* Pods-miitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-miitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-miitTests/Pods-miitTests.release.xcconfig"; sourceTree = "<group>"; };
 		F4AE2B9648B635F78E6B9F66 /* Pods-miit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-miit.release.xcconfig"; path = "Pods/Target Support Files/Pods-miit/Pods-miit.release.xcconfig"; sourceTree = "<group>"; };
@@ -409,6 +415,8 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				Base,
+				en,
+				"zh-Hant",
 			);
 			mainGroup = BE94C1602146352000A8CD81;
 			productRefGroup = BE94C16A2146352000A8CD81 /* Products */;
@@ -619,6 +627,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				BE94C1712146352000A8CD81 /* Base */,
+				BED8628F2169D5AE00AB560D /* en */,
+				BED862922169D5CF00AB560D /* zh-Hant */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -627,6 +637,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				BE94C1762146352100A8CD81 /* Base */,
+				BED862902169D5AF00AB560D /* en */,
+				BED862932169D5CF00AB560D /* zh-Hant */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -635,6 +647,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				BED8628221690F9A00AB560D /* Base */,
+				BED862912169D5AF00AB560D /* en */,
+				BED862942169D5CF00AB560D /* zh-Hant */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

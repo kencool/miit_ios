@@ -135,7 +135,7 @@ extension Alert {
         let image = EKPopUpMessage.ThemeImage(image: EKProperty.ImageContent(image: UIImage(named: "error")!, size: CGSize(width: 60, height: 60), contentMode: .scaleAspectFit))
         let title = EKProperty.LabelContent(text: title, style: EKProperty.LabelStyle(font: UIFont.systemFont(ofSize: 24), color: UIColor.white, alignment: .center))
         let description = EKProperty.LabelContent(text: message, style: EKProperty.LabelStyle(font: UIFont.systemFont(ofSize: 16), color: UIColor.lightText, alignment: .center))
-        let button = EKProperty.ButtonContent(label: .init(text: "Got it!", style: .init(font: UIFont.systemFont(ofSize: 16), color: MIColor.gray)), backgroundColor: UIColor.white, highlightedBackgroundColor: MIColor.gray.withAlphaComponent(0.05))
+        let button = EKProperty.ButtonContent(label: .init(text: "got_it".localized(), style: .init(font: UIFont.systemFont(ofSize: 16), color: MIColor.gray)), backgroundColor: UIColor.white, highlightedBackgroundColor: MIColor.gray.withAlphaComponent(0.05))
         // message view
         let message = EKPopUpMessage(themeImage: image, title: title, description: description, button: button) {
             SwiftEntryKit.dismiss()

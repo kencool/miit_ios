@@ -311,6 +311,10 @@ extension MICallViewController {
 extension MICallViewController: UIDocumentPickerDelegate {
     
     func callToolBarDidSelectCloud(_ toolBar: CallToolBar) {
+        guard call.state == .calling else {
+            Alert.topFloatError(title: "no_call_title".localized(), message: "no_peer_share_file".localized())
+            return
+        }
         let picker = UIDocumentPickerViewController(documentTypes: Cloud.pickDocumentTypes, in: .open)
         picker.delegate = self
         picker.modalPresentationStyle = .fullScreen
@@ -318,6 +322,10 @@ extension MICallViewController: UIDocumentPickerDelegate {
     }
     
     func callToolBarDidSelectPhoto(_ toolBar: CallToolBar) {
+        guard call.state == .calling else {
+            Alert.topFloatError(title: "no_call_title".localized(), message: "no_peer_share_file".localized())
+            return
+        }
         let picker = UIImagePickerController()
         picker.sourceType = .photoLibrary
         picker.mediaTypes = [kUTTypeImage as String, kUTTypeMovie as String]
