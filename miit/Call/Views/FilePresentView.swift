@@ -43,7 +43,8 @@ class FilePresentView: UIView {
         super.init(frame: CGRect.zero)
         self.backgroundColor = UIColor(white: 0, alpha: 0.6)
         if canSave {
-            saveButton = self.addButton(imageName: "video_save", self, action: #selector(didPressSaveFile))
+            saveButton = self.addButton(imageName: "save", self, action: #selector(didPressSaveFile))
+            saveButton?.tintColor = UIColor.white
             saveButton?.shadowColor = UIColor.black
             saveButton?.shadowOffset = CGSize(width: 2, height: 2)
             saveButton?.shadowOpacity = 1

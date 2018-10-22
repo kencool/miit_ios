@@ -140,6 +140,7 @@ class MICallViewController: UIViewController, CallViewDelegate, CallToolBarDeleg
         
         // close button
         closeButton = self.view.addButton(imageName: "close", self, action: #selector(closePressed))
+        closeButton.contentEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         closeButton.snp.makeConstraints { (make) in
             make.left.equalTo(8)
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.topMargin)
@@ -147,7 +148,8 @@ class MICallViewController: UIViewController, CallViewDelegate, CallToolBarDeleg
         }
         
         // info button
-        infoButton = self.view.addButton(imageName: "room_info", self, action: #selector(toggleRoomInfo))
+        infoButton = self.view.addButton(imageName: "info", self, action: #selector(toggleRoomInfo))
+        infoButton.contentEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         infoButton.snp.makeConstraints { make in
             make.left.equalTo(closeButton.snp.right)
             make.top.equalTo(closeButton)
@@ -329,6 +331,7 @@ extension MICallViewController: UIDocumentPickerDelegate {
         let picker = UIImagePickerController()
         picker.sourceType = .photoLibrary
         picker.mediaTypes = [kUTTypeImage as String, kUTTypeMovie as String]
+        picker.videoExportPreset = AVAssetExportPresetPassthrough
         picker.allowsEditing = false
         picker.delegate = self
         self.present(picker, animated: true, completion: nil)

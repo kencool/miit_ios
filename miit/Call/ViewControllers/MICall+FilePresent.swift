@@ -33,6 +33,7 @@ extension MICallViewController {
     }
     
     func presentFileView(_ view: FilePresentView) {
+        chatView.endEditing(true)
         filePresentView?.removeFromSuperview()
         filePresentView = view
         filePresentView?.frame = self.view.bounds

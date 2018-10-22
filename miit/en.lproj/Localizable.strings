@@ -22,6 +22,7 @@
 "got_it" = "Got it!";
 "open_room_failed" = "Open Room Failed";
 "Room ID" = "Room ID";
+"room_id_entry_placeholder" = "Create or join a room ID";
 
 "no_call_title" = "Call is not activated";
 "no_peer_share_file" = "Oops! No peer to share your file. Invite peer now!";

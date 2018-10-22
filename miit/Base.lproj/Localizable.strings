@@ -6,7 +6,7 @@
   Copyright © 2018年 Ken Sun. All rights reserved.
 */
 "welcome" = "Welcome to miit!";
-"welcome_message" = "You can do video chat, messaging and sharing files with others. All you need is just an arbitrary room ID.";
+"welcome_message" = "You can video chat, message and share files with others.";
 "welcome_go" = "Let's Go!";
 
 "Connecting....." = "Connecting.....";
@@ -22,8 +22,9 @@
 "got_it" = "Got it!";
 "open_room_failed" = "Open Room Failed";
 "Room ID" = "Room ID";
+"room_id_entry_placeholder" = "Create or join a room ID";
 
-"no_call_title" = "Call is not activated";
+"no_call_title" = "Still waiting for peer";
 "no_peer_share_file" = "Oops! No peer to share your file. Invite peer now!";
 
 "Disconnected" = "Disconnected";
@@ -48,5 +49,5 @@
 "save_to_icloud_message" = "Save this file to your iCloud. You can check it out in Files app.";
 "file_saved_icloud" = "File is saved to your iCloud.";
 "Save Failed" = "Save Failed";
-"video_incompatible_save" = "This video is incompatible to be saved.";
+"video_incompatible_save" = "Cannot save incompatible file.";
 "file_cannot_view" = "This file can't be viewed.\n You can still save it to iCloud.";

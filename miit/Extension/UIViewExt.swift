@@ -22,6 +22,7 @@ extension UIView {
     
     func addButton(type: UIButtonType = .custom, imageName: String, _ target: Any?, action: Selector) -> UIButton {
         let button = UIButton(type: type)
+        button.tintColor = UIColor.white
         button.setImage(UIImage(named: imageName), for: .normal)
         button.sizeToFit()
         button.addTarget(target, action: action, for: .touchUpInside)

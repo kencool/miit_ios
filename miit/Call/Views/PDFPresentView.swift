@@ -81,7 +81,7 @@ class PDFPresentView: FilePresentView {
         }
         
         // change save button image and location
-        saveButton?.setImage(UIImage(named: "save_icloud"), for: .normal)
+        saveButton?.setImage(UIImage(named: "cloud_upload"), for: .normal)
         saveButton?.tintColor = UIColor.white
         saveButton?.snp.remakeConstraints { make in
             make.top.equalTo(self.safeAreaLayoutGuide).offset(4)

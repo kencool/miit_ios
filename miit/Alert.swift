@@ -97,7 +97,7 @@ extension Alert {
     class func topFloatError(title: String, message: String) {
         var attributes = EKAttributes.topFloat
         attributes.hapticFeedbackType = .error
-        attributes.entryBackground = .gradient(gradient: .init(colors: [UIColor.white, UIColor.red], startPoint: .zero, endPoint: CGPoint(x: 1, y: 1)))
+        attributes.entryBackground = .color(color: UIColor(red: 255, green: 51, blue: 51))
         attributes.popBehavior = .animated(animation: .init(translate: .init(duration: 0.3), scale: .init(from: 1, to: 0.7, duration: 0.7)))
         attributes.shadow = .active(with: .init(color: .black, opacity: 0.5, radius: 10))
         attributes.statusBar = .dark
@@ -118,7 +118,7 @@ extension Alert {
         var attributes = EKAttributes.centerFloat
         attributes.hapticFeedbackType = .success
         attributes.displayDuration = .infinity
-        attributes.entryBackground = .gradient(gradient: .init(colors: [UIColor.white, UIColor.red], startPoint: .zero, endPoint: CGPoint(x: 1, y: 1)))
+        attributes.entryBackground = .color(color: UIColor(red: 255, green: 51, blue: 51))
         attributes.screenBackground = .color(color: UIColor(white: 50.0/255.0, alpha: 0.3))
         attributes.shadow = .active(with: .init(color: .black, opacity: 0.3, radius: 8))
         attributes.screenInteraction = .dismiss

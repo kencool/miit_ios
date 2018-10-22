@@ -32,30 +32,35 @@ class CallToolBar: UIView {
     private var audioButton: UIButton!
     
     init() {
-        let size = CGSize(width: 50, height: 40)
-        super.init(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: size.width, height: size.height * 4)))
+        let size = CGSize(width: 50, height: 50)
+        let items = 4
+        super.init(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: size.width, height: size.height * CGFloat(items))))
         self.clipsToBounds = true
+        let contentInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         cloudButton = self.addButton(imageName: "cloud", self, action: #selector(cloudPressed))
-        cloudButton.contentMode = .scaleAspectFit
+        cloudButton.contentEdgeInsets = contentInsets
         cloudButton.snp.makeConstraints { make in
             make.left.top.right.equalTo(self)
             make.height.equalTo(size.height)
         }
-        photoButton = self.addButton(imageName:"album_photo", self, action: #selector(photoPressed))
+        photoButton = self.addButton(imageName:"photos", self, action: #selector(photoPressed))
+        photoButton.contentEdgeInsets = contentInsets
         photoButton.snp.makeConstraints { make in
             make.left.right.equalTo(self)
             make.top.equalTo(cloudButton.snp.bottom)
             make.height.equalTo(size.height)
         }
-        videoButton = self.addButton(imageName:"video_on", self, action: #selector(videoPressed))
-        videoButton.setImage(UIImage(named: "video_off"), for: .selected)
+        videoButton = self.addButton(imageName:"videocam_on", self, action: #selector(videoPressed))
+        videoButton.contentEdgeInsets = contentInsets
+        videoButton.setImage(UIImage(named: "videocam_off"), for: .selected)
         videoButton.snp.makeConstraints { make in
             make.left.right.equalTo(self)
             make.top.equalTo(photoButton.snp.bottom)
             make.height.equalTo(size.height)
         }
-        audioButton = self.addButton(imageName: "audio_on", self, action: #selector(audioPressed))
-        audioButton.setImage(UIImage(named: "audio_off"), for: .selected)
+        audioButton = self.addButton(imageName: "mic_on", self, action: #selector(audioPressed))
+        audioButton.contentEdgeInsets = contentInsets
+        audioButton.setImage(UIImage(named: "mic_off"), for: .selected)
         audioButton.snp.makeConstraints { make in
             make.left.right.equalTo(self)
             make.top.equalTo(videoButton.snp.bottom)

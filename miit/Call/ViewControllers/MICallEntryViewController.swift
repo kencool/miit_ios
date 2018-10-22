@@ -238,8 +238,9 @@ class MICallEntryTextField: UIView, UITextFieldDelegate {
         self.entryText.keyboardType = .asciiCapable
         self.entryText.textColor = UIColor.white
         self.entryText.returnKeyType = .done
-        self.entryText.attributedPlaceholder = NSAttributedString(string: "Room ID".localized(), attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightGray,
-                                                                                                              NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14)])
+        self.entryText.attributedPlaceholder = NSAttributedString(string: "room_id_entry_placeholder".localized(),
+                                                                  attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightGray,
+                                                                               NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14)])
         self.addSubview(entryText)
         entryText.snp.makeConstraints { (make) in
             make.topMargin.equalTo(0)

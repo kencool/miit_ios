@@ -22,6 +22,7 @@
 "got_it" = "了解！";
 "open_room_failed" = "進入房間失敗";
 "Room ID" = "房間ID";
+"room_id_entry_placeholder" = "輸入或建立一個房間 ID";
 
 "no_call_title" = "通話未建立";
 "no_peer_share_file" = "沒有對象能分享檔案，快邀請對方進入房間！";
